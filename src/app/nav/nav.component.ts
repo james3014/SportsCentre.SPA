@@ -9,6 +9,7 @@ import { createOfflineCompileUrlResolver } from '@angular/compiler';
 })
 export class NavComponent implements OnInit {
   model: any = {};
+  registerMode = false;
 
   constructor(private authService: AuthService) { }
 
@@ -21,6 +22,21 @@ export class NavComponent implements OnInit {
     }, error => {
       console.log('Failed To Login');
     });
+  }
+
+  loggedIn() {
+    const token = localStorage.getItem('token');
+    return !!token;
+  }
+
+
+  logout() {
+    localStorage.removeItem('token');
+    console.log('Logged Out');
+  }
+
+  registerToggle() {
+    this.registerMode = !this.registerMode;
   }
 
 }
