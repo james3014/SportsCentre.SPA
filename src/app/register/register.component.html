@@ -1,18 +1,57 @@
 <form #registerForm="ngForm" (ngSubmit)="register()">
-    <h2 class="text-center text-primary">Sign Up</h2>
-    <hr>
-  
-    <div class="form-group">
-      <input type="text" class="form-control" required name="email" [(ngModel)]="model.email" placeholder="Email">
-    </div>
-  
-    <div class="form-group">
-      <input type="password" class="form-control" required name="password" [(ngModel)]="model.password" placeholder="Password">
-    </div>
-  
-    <div class="form-group text-center">
-      <button class="btn btn-success mr-2" type="submit">Register</button>
-      <button class="btn btn-danger" type="button" (click)="cancel()">Cancel</button>
-    </div>
-    
-  </form>
+  <h1 class="text-center text-primary">Sign Up</h1>
+  <hr>
+
+  <div class="form-group">
+    <input type="text"  class="form-control" required name="email" [(ngModel)]="model.email" placeholder="Email">
+  </div>
+
+  <div class="form-group">
+    <input type="password" class="form-control" required name="password" [(ngModel)]="model.password"
+      placeholder="Password">
+  </div>
+
+  <div class="form-group">
+    <input type="password" class="form-control" required name="confirmPassword" [(ngModel)]="model.confirmPassword"
+      placeholder="Confirm Password">
+  </div>
+
+
+  <div class="form-group">
+    <input type="text" class="form-control" required name="firstName" [(ngModel)]="model.firstName"
+      placeholder="First Name">
+  </div>
+
+  <div class="form-group">
+    <input type="text" class="form-control" required name="surname" [(ngModel)]="model.surname" placeholder="Surname">
+  </div>
+
+  <div class="form-group">
+    <input type="text" class="form-control" required name="addressLine1" [(ngModel)]="model.addressLine1"
+      placeholder="Address Line 1">
+  </div>
+
+  <div class="form-group">
+    <input type="text" class="form-control" required name="addressLine2" [(ngModel)]="model.addressLine2"
+      placeholder="Address Line 2">
+  </div>
+
+  <div class="form-group">
+    <input type="text" class="form-control" required name="town" [(ngModel)]="model.town" placeholder="City">
+  </div>
+
+  <div class="form-group">
+    <input type="text" class="form-control" required name="postCode" [(ngModel)]="model.postCode"
+      placeholder="Post Code">
+  </div>
+
+  <div class="form-group">
+    <input type="date" class="form-control" required name="dob" [(ngModel)]="model.dob" placeholder="Date of Birth">
+  </div>
+
+  <div class="form-group text-center">
+    <button class="btn btn-primary mr-2" type="submit">Register</button>
+    <button class="btn btn-default" type="button" (click)="cancel()">Cancel</button>
+  </div>
+
+</form>
