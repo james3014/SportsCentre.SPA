@@ -1,0 +1,18 @@
+.container{
+    width: 80%;
+    margin: auto;
+}
+
+#main{
+    float: left;
+    width: 68%;
+    height: 600px;
+    box-sizing: border-box;
+}
+
+#sidebar{
+    float: right;
+    width: 28%;
+    height: 600px;
+    box-sizing: border-box;
+}

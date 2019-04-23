@@ -16,6 +16,7 @@ import { BookingComponent } from './booking/booking.component';
 import { ClassesComponent } from './classes/classes.component';
 import { MembershipComponent } from './membership/membership.component';
 import { ShopComponent } from './shop/shop.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { ShopComponent } from './shop/shop.component';
       BookingComponent,
       ClassesComponent,
       MembershipComponent,
-      ShopComponent
+      ShopComponent,
+      FooterComponent
    ],
    imports: [
       BrowserModule,
