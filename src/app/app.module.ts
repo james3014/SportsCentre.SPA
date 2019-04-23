@@ -14,9 +14,12 @@ import { ErrorInterceptorProvider} from './_services/error.interceptor';
 import { AlertifyService } from './_services/alertify.service';
 import { BookingComponent } from './booking/booking.component';
 import { ClassesComponent } from './classes/classes.component';
-import { MembershipComponent } from './membership/membership.component';
 import { ShopComponent } from './shop/shop.component';
 import { FooterComponent } from './footer/footer.component';
+import { MembershipDetailComponent } from './membership/membership-detail/membership-detail.component';
+import { MembershipHomeComponent } from './membership/membership-home/membership-home.component';
+import { MembershipManageComponent } from './membership/membership-manage/membership-manage.component';
+import { appRoutes } from './routes';
 
 
 @NgModule({
@@ -27,7 +30,9 @@ import { FooterComponent } from './footer/footer.component';
       RegisterComponent,
       BookingComponent,
       ClassesComponent,
-      MembershipComponent,
+      MembershipDetailComponent,
+      MembershipHomeComponent,
+      MembershipManageComponent,
       ShopComponent,
       FooterComponent
    ],
@@ -36,7 +41,7 @@ import { FooterComponent } from './footer/footer.component';
       HttpClientModule,
       FormsModule,
       BsDropdownModule.forRoot(),
-      RouterModule
+      RouterModule.forRoot(appRoutes)
    ],
    providers: [
       AuthService,
