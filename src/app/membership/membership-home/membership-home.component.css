@@ -1,0 +1,61 @@
+.card{
+    border-radius: 10px;
+    margin-top: 10px;
+    height: 500px;
+}
+
+
+#card-1{
+    float: right;
+    width: 30%;
+    box-sizing: border-box;
+    margin: 5px;
+    background-color: #008cba;
+    color: #fff;
+}
+
+#card-2{
+    float: none;
+    width: 30%;
+    box-sizing: border-box;
+    margin: 5px;
+    background-color: #008cba;
+    color: #fff;
+}
+
+#card-3{
+    float: left;
+    width: 30%;
+    box-sizing: border-box;
+    margin: 5px;
+    background-color: #008cba;
+    color: #fff;
+}
+
+#member-card h4{
+    font-weight: 800;
+}
+
+.header{
+    margin-bottom: 40px;
+}
+
+.header h1{
+    font-weight: 500;
+}
+
+#join{
+    margin: 5px;
+    padding: 10px;
+    padding-right: 20px;
+    padding-left: 20px;
+    font-weight: 550;
+}
+
+#details{
+    margin: 5px;
+    padding: 10px;
+    padding-right: 20px;
+    padding-left: 20px;
+    font-weight: 550;
+}

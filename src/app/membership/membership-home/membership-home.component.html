@@ -1,3 +1,53 @@
-<p>
-  membership-home works!
-</p>
+<div class="container mt-5">
+  <div class="header">
+    <h1>Membership</h1>
+    <p>By joining NL Leisure, you are not just another number, left to your own devices.
+      You join a community of friendly members and staff that are committed to helping you
+      reach your goals and have a lot of fun along the way.</p>
+  </div>
+
+  <div class="row inline">
+    <div id="card-1" class="card">
+      <div class="card-body">
+        <h4 class="card-title">Adult</h4>
+        <p class="card-text">With hundreds of classes to choose from, you can look and feel good for just £34.99 per
+          month. Opt for an annual adult pass which is the equivelant of less than £32 per month.</p>
+        <hr>
+        <h4>£34.99 PER MONTH (£374 ANNUAL)</h4>
+
+        <p>We also have an option for a 7 day gym pass which is a one off payment of £12.</p>
+        <div class="form-group " routerLinkActive="active">
+            <a [routerLink]="['/membership/join']"><button id="join" class="btn btn-secondary" type="submit">Join</button></a>
+        </div>
+      </div>
+    </div>
+
+    <div id="card-2" class="card ">
+      <div class="card-body">
+        <h4 class="card-title">Juvenile (Under 16)</h4>
+        <p class="card-text">Open up a world of sport and leisure with an NL Leisure Student & Over 65's membership.
+          If you are over 65, or are a student you get a reduced rate access. Enjoy NL Leisure's
+          facilities for less than £1 a day. Click here for the Terms and Conditions.</p>
+        <hr>
+        <h4>£22 PER MONTH (£240 ANNUAL)</h4>
+        <div class="form-group" routerLinkActive="active">
+          <a [routerLink]="['/membership/join']"><button id="join" class="btn btn-secondary" type="submit">Join</button></a>
+        </div>
+      </div>
+    </div>
+
+    <div id="card-3" class="card">
+      <div class="card-body">
+        <h4 class="card-title">Family</h4>
+        <p class="card-text">Share your love of sport and fitness with the one you love. Try working out together - it
+          works out so much cheaper./n</p>
+        <hr>
+        <h4>£63 PER MONTH (£704 ANNUAL)</h4>
+        <div class="form-group">
+            <a [routerLink]="['/membership/join']"><button id="join" class="btn btn-secondary" type="submit">Join</button></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

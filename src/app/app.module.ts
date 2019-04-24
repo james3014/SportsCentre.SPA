@@ -16,10 +16,11 @@ import { BookingComponent } from './booking/booking.component';
 import { ClassesComponent } from './classes/classes.component';
 import { ShopComponent } from './shop/shop.component';
 import { FooterComponent } from './footer/footer.component';
-import { MembershipDetailComponent } from './membership/membership-detail/membership-detail.component';
 import { MembershipHomeComponent } from './membership/membership-home/membership-home.component';
 import { MembershipManageComponent } from './membership/membership-manage/membership-manage.component';
+import { MembershipJoinComponent } from './membership/membership-join/membership-join.component';
 import { appRoutes } from './routes';
+import { AboutComponent } from './about/about.component';
 
 
 @NgModule({
@@ -30,11 +31,12 @@ import { appRoutes } from './routes';
       RegisterComponent,
       BookingComponent,
       ClassesComponent,
-      MembershipDetailComponent,
+      MembershipJoinComponent,
       MembershipHomeComponent,
       MembershipManageComponent,
       ShopComponent,
-      FooterComponent
+      FooterComponent,
+      AboutComponent
    ],
    imports: [
       BrowserModule,

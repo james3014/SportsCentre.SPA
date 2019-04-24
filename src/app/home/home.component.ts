@@ -8,7 +8,6 @@ import { AuthService } from '../_services/auth.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  registerMode = false;
   values: any;
 
   constructor(private http: HttpClient, private authService: AuthService) { }
@@ -20,12 +19,6 @@ export class HomeComponent implements OnInit {
     return this.authService.loggedIn();
   }
 
-  registerToggle() {
-    this.registerMode = true;
-  }
 
-  cancelRegisterMode(registerMode: boolean) {
-    this.registerMode = registerMode;
-  }
 
 }
