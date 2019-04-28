@@ -9,7 +9,7 @@ import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
 import { AuthService } from './_services/auth.service';
 import { HomeComponent } from './home/home.component';
-import { RegisterComponent } from './register/register.component';
+import { RegisterComponent } from './authentication/register/register.component';
 import { ErrorInterceptorProvider} from './_services/error.interceptor';
 import { AlertifyService } from './_services/alertify.service';
 import { BookingComponent } from './booking/booking.component';
@@ -21,7 +21,9 @@ import { MembershipManageComponent } from './membership/membership-manage/member
 import { MembershipJoinComponent } from './membership/membership-join/membership-join.component';
 import { appRoutes } from './routes';
 import { AboutComponent } from './about/about.component';
-import { LoginComponent } from './login/login.component';
+import { LoginComponent } from './authentication/login/login.component';
+import { AuthGuard } from './_guards/auth.guard';
+import { StaffLoginComponent } from './authentication/staff-login/staff-login.component';
 
 
 @NgModule({
@@ -38,7 +40,8 @@ import { LoginComponent } from './login/login.component';
       ShopComponent,
       FooterComponent,
       AboutComponent,
-      LoginComponent
+      LoginComponent,
+      StaffLoginComponent
    ],
    imports: [
       BrowserModule,
@@ -50,7 +53,8 @@ import { LoginComponent } from './login/login.component';
    providers: [
       AuthService,
       ErrorInterceptorProvider,
-      AlertifyService
+      AlertifyService,
+      AuthGuard
    ],
    bootstrap: [
       AppComponent

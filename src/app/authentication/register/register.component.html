@@ -53,14 +53,13 @@
                   placeholder="Post Code" required autofocus>
               </div>
 
-              <div class="form-label-group mb-2">
+              <div class="form-label-group mb-3">
                 <input type="date" class="form-control text-center" name="dob" [(ngModel)]="model.dob"
                   placeholder="Date of Birth" required autofocus>
               </div>
-              <hr class="my-4">
 
               <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Register</button>
-              <button class="btn btn-lg btn-warning btn-block text-uppercase" type="button" routerLinkActive="active"
+              <button class="btn btn-md btn-warning btn-block text-uppercase" type="button" routerLinkActive="active"
                 [routerLink]="['/home']">Cancel</button>
 
             </form>

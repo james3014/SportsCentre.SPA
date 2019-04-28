@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./membership-home.component.css']
 })
 export class MembershipHomeComponent implements OnInit {
-  public name = 'Jamie';
+  membershipType: string;
 
   constructor() { }
 

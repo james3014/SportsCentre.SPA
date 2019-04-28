@@ -3,9 +3,10 @@
     margin: auto;
 }
 
+
 #main{
     float: left;
-    width: 68%;
+    width: 70%;
     height: 600px;
     box-sizing: border-box;
 }
