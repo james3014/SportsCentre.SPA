@@ -1,47 +1,37 @@
-<nav class="navbar navbar-expand-md navbar-dark bg-primary">
-  <div class="container">
-    <a class="navbar-brand" href="#">CCC Sports Centre</a>
+<div *ngIf="loggedIn()"
+  class="d-flex flex-column align-items-center flex-md-row p-3 px-md-4 mb-3 bg-white border-bottom">
+  <h5 class="my-0 mr-md-auto font-weight-normal">CCC Sports Centre</h5>
+  <a class="p-2 text-dark" [routerLink]="['/home']">Home</a>
+  <a class="p-2 text-dark" [routerLink]="['/membership/home']">Membership</a>
+  <a class="p-2 text-dark" [routerLink]="['/classes']">Classes</a>
+  <a class="p-2 text-dark" [routerLink]="['/bookings']">Bookings</a>
+  <a class="p-2 text-dark" [routerLink]="['/bookings']">Shop</a>
+  <a class="p-2 text-dark mr-2" [routerLink]="['/about']">About Us</a>
 
-    <ul *ngIf="loggedIn()" class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Bookings<span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Classes</a>
-      </li>
-      <li class="nav-item" routerLinkActive="active">
-        <a class="nav-link" [routerLink]="['/membership/home']">Membership</a>
-      </li>
-      <li class="nav-item active">
-        <a class="nav-link" href="#">About Us</a>
-      </li>
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Shop</a>
-      </li>
-    </ul>
+  <div class="dropdown" dropdown>
+    <a class="dropdown-toggle text-dark" dropdownToggle>
+      <strong>{{ authService.decodedToken?.unique_name | titlecase }}</strong>
+    </a>
 
-    <div *ngIf="loggedIn()" class="dropdown" dropdown>
-      <a class="dropdown-toggle text-light" dropdownToggle>
-        {{ authService.decodedToken?.unique_name | titlecase }}
-      </a>
-
-      <div class="dropdown-menu mt-3" *dropdownMenu>
-        <a class="dropdown-item" href="#"><i class="fa fa-user"></i> Edit Profile</a>
-        <div class="dropdown divider"></div>
-        <a class="dropdown-item" href="#" (click)="logout()"><i class="fa fa-sign-out"></i> Logout</a>
-      </div>
+    <div id="user-menu" class="dropdown-menu mt-4 mr-10" *dropdownMenu>
+      <a class="dropdown-item" [routerLink]="['/member/edit']"><i class="fa fa-user"></i> Edit Profile</a>
+      <div class="dropdown divider"></div>
+      <a class="dropdown-item" (click)="logout()"><i class="fa fa-sign-out"></i>Logout</a>
     </div>
+  </div>
+</div>
 
-    <form id="login-form" *ngIf="!loggedIn()" #loginForm="ngForm" class="form-inline my-2 my-lg-0" (ngSubmit)="login()">
-      <input class="form-control mr-sm-2" type="text" name="email" placeholder="Email" required
-        [(ngModel)]="model.email">
-      <input class="form-control mr-sm-2" type="password" name="password" placeholder="Password" required
-        [(ngModel)]="model.password">
-      <button [disabled]="!loginForm.valid" class="btn btn-info my-2 my-sm-0" type="submit">Login</button>
-    </form>
+  <div *ngIf="!loggedIn()" 
+  class="d-flex flex-column align-items-center flex-md-row p-3 px-md-4 mb-3 bg-white border-bottom">
+    <h5 class="my-0 mr-md-auto font-weight-normal">CCC Sports Centre</h5>
+    <a class="p-2 text-dark" [routerLink]="['/home']">Home</a>
+    <a class="p-2 text-dark" [routerLink]="['/membership/home']">Membership</a>
+    <a class="p-2 text-dark" [routerLink]="['/classes']">Classes</a>
+    <a class="p-2 text-dark" [routerLink]="['/bookings']">Bookings</a>
+    <a class="p-2 text-dark" [routerLink]="['/bookings']">Shop</a>
+    <a class="p-2 text-dark mr-2" [routerLink]="['/about']">About Us</a>
 
-    <button *ngIf="!loggedIn()" routerLinkActive="active" [routerLink]="['/register']" class="form-inline my-2 my-sm-0 btn btn-danger">Register</button>
-
+    <a class="btn btn-outline-primary mr-2" [routerLink]="['/login']">Login</a>
+    <a class="btn btn-outline-warning" [routerLink]="['/register']">Sign up</a>
   </div>
 
-</nav>

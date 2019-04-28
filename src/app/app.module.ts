@@ -21,6 +21,7 @@ import { MembershipManageComponent } from './membership/membership-manage/member
 import { MembershipJoinComponent } from './membership/membership-join/membership-join.component';
 import { appRoutes } from './routes';
 import { AboutComponent } from './about/about.component';
+import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { AboutComponent } from './about/about.component';
       MembershipManageComponent,
       ShopComponent,
       FooterComponent,
-      AboutComponent
+      AboutComponent,
+      LoginComponent
    ],
    imports: [
       BrowserModule,

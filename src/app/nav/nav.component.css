@@ -2,6 +2,7 @@
     cursor: pointer;
 }
 
-#login-form{
-    padding-left: 390px;
+.dropdown-menu{
+    float: left;
 }
+
