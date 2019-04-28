@@ -12,6 +12,7 @@ export interface User {
     town: string;
     postCode: string;
     dateOfBirth: Date;
+    dateJoined: Date;
     membershipType?: string;
     membershipExpiry?: Date;
     bookings?: Booking[];

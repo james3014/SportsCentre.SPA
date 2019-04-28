@@ -26,6 +26,7 @@ import { AuthGuard } from './_guards/auth.guard';
 import { StaffLoginComponent } from './authentication/staff-login/staff-login.component';
 import { AdminComponent } from './staff/admin/admin.component';
 import { ContactComponent } from './contact/contact.component';
+import { UserService } from './_services/user.service';
 
 
 @NgModule({
@@ -58,7 +59,8 @@ import { ContactComponent } from './contact/contact.component';
       AuthService,
       ErrorInterceptorProvider,
       AlertifyService,
-      AuthGuard
+      AuthGuard,
+      UserService
    ],
    bootstrap: [
       AppComponent
