@@ -8,6 +8,7 @@
   <a class="p-2 text-dark" [routerLink]="['/bookings']">Shop</a>
   <a class="p-2 text-dark mr-2" [routerLink]="['/about']">About Us</a>
 
+
   <div class="dropdown" dropdown>
     <a class="dropdown-toggle text-dark" dropdownToggle>
       <strong>{{ authService.decodedToken?.unique_name | titlecase }}</strong>
@@ -16,23 +17,24 @@
     <div class="dropdown-menu mt-4 mr-10" *dropdownMenu>
       <a class="dropdown-item" [routerLink]="['/member/edit']"><i class="fa fa-user"></i> Edit Profile</a>
       <div class="dropdown divider"></div>
+      <a class="dropdown-item" [routerLink]="['/admin']"><i class="fa fa-edit"></i> Admin Area</a>
+      <div class="dropdown divider"></div>
       <a class="dropdown-item" (click)="logout()"><i class="fa fa-sign-out"></i>Logout</a>
       <div class="dropdown divider"></div>
     </div>
   </div>
 </div>
 
-  <div *ngIf="!loggedIn()" 
+<div *ngIf="!loggedIn()"
   class="d-flex flex-column align-items-center flex-md-row p-3 px-md-4 mb-3 bg-white border-bottom">
-    <h5 class="my-0 mr-md-auto font-weight-normal">CCC Sports Centre</h5>
-    <a class="p-2 text-dark" [routerLink]="['/home']">Home</a>
-    <a class="p-2 text-dark" [routerLink]="['/membership/home']">Membership</a>
-    <a class="p-2 text-dark" [routerLink]="['/classes']">Classes</a>
-    <a class="p-2 text-dark" [routerLink]="['/bookings']">Bookings</a>
-    <a class="p-2 text-dark" [routerLink]="['/bookings']">Shop</a>
-    <a class="p-2 text-dark mr-2" [routerLink]="['/about']">About Us</a>
+  <h5 class="my-0 mr-md-auto font-weight-normal">CCC Sports Centre</h5>
+  <a class="p-2 text-dark" [routerLink]="['/home']">Home</a>
+  <a class="p-2 text-dark" [routerLink]="['/membership/home']">Membership</a>
+  <a class="p-2 text-dark" [routerLink]="['/classes']">Classes</a>
+  <a class="p-2 text-dark" [routerLink]="['/bookings']">Bookings</a>
+  <a class="p-2 text-dark" [routerLink]="['/bookings']">Shop</a>
+  <a class="p-2 text-dark mr-2" [routerLink]="['/about']">About Us</a>
 
-    <a class="btn btn-outline-primary mr-2" [routerLink]="['/login']">Login</a>
-    <a class="btn btn-outline-warning" [routerLink]="['/register']">Sign up</a>
-  </div>
-
+  <a class="btn btn-outline-primary mr-2" [routerLink]="['/login']">Login</a>
+  <a class="btn btn-outline-warning" [routerLink]="['/register']">Sign up</a>
+</div>

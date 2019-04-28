@@ -1,43 +1,43 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+      <div class="card card-signin my-5">
+        <div class="card-body">
+          <h3 class="card-title text-center">Login</h3>
+          <hr class="my-4">
+          <form #loginForm="ngForm" (ngSubmit)="login()">
+            <div class="form-label-group mb-2">
+              <input type="email" id="inputEmail" class="form-control text-center" name="email"
+                [(ngModel)]="model.email" placeholder="Email address" required autofocus>
+            </div>
 
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
-        <div class="card card-signin my-5">
-          <div class="card-body">
-            <h3 class="card-title text-center">Login</h3>
+            <div class="form-label-group mb-3">
+              <input type="password" id="inputPassword" class="form-control text-center" name="password"
+                [(ngModel)]="model.password" placeholder="Password" required>
+            </div>
+
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
             <hr class="my-4">
-            <form #loginForm="ngForm" (ngSubmit)="login()">
-              <div class="form-label-group mb-2">
-                <input type="email" id="inputEmail" class="form-control text-center" name="email" [(ngModel)]="model.email" placeholder="Email address" required autofocus>
-              </div>
-
-              <div class="form-label-group mb-3">
-                <input type="password" id="inputPassword" class="form-control text-center" name="password" [(ngModel)]="model.password" placeholder="Password" required>
-              </div>
-
-              <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-              <hr class="my-4">
-              <button class="btn btn-lg btn-google btn-block" type="submit"><i class="fa fa-google mr-2"></i> Sign in with Google</button>
-              <button class="btn btn-lg btn-facebook btn-block" type="submit"><i class="fa fa-facebook-f mr-2"></i> Sign in with Facebook</button>
-            </form>
-          </div>
+            <button class="btn btn-lg btn-google btn-block" type="submit"><i class="fa fa-google mr-2"></i> Sign in with
+              Google</button>
+            <button class="btn btn-lg btn-facebook btn-block" type="submit"><i class="fa fa-facebook-f mr-2"></i> Sign
+              in with Facebook</button>
+          </form>
         </div>
       </div>
     </div>
   </div>
+</div>
 
-  <div class="container">
-      <div class="row">
-        <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
-          <div class="card card-signin">
-            <div class="card-body">
-              <h4 class="card-title text-center">Staff Login</h4>
-              <button class="btn btn-outline-primary btn-block" [routerLink]="['/staff']">Login</button>
-            </div>
-          </div>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+      <div class="card card-signin">
+        <div class="card-body">
+          <h4 class="card-title text-center">Staff Login</h4>
+          <button class="btn btn-outline-primary btn-block" [routerLink]="['/staff']">Login</button>
         </div>
       </div>
     </div>
-  
-
-
+  </div>
+</div>

@@ -24,6 +24,8 @@ import { AboutComponent } from './about/about.component';
 import { LoginComponent } from './authentication/login/login.component';
 import { AuthGuard } from './_guards/auth.guard';
 import { StaffLoginComponent } from './authentication/staff-login/staff-login.component';
+import { AdminComponent } from './staff/admin/admin.component';
+import { ContactComponent } from './contact/contact.component';
 
 
 @NgModule({
@@ -41,7 +43,9 @@ import { StaffLoginComponent } from './authentication/staff-login/staff-login.co
       FooterComponent,
       AboutComponent,
       LoginComponent,
-      StaffLoginComponent
+      StaffLoginComponent,
+      AdminComponent,
+      ContactComponent
    ],
    imports: [
       BrowserModule,
