@@ -7,7 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./membership-join.component.css']
 })
 export class MembershipJoinComponent implements OnInit {
-  @Input() membershipType: any;
+  @Input() type: any;
 
   constructor() { }
 

@@ -6,7 +6,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./membership-home.component.css']
 })
 export class MembershipHomeComponent implements OnInit {
-  membershipType: string;
 
   constructor() { }
 
