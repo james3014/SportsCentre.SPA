@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Class } from '../_models/class';
 
 @Component({
   selector: 'app-classes',
@@ -6,10 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./classes.component.css']
 })
 export class ClassesComponent implements OnInit {
+  classes: Class[];
 
   constructor() { }
 
   ngOnInit() {
   }
+
+  
 
 }

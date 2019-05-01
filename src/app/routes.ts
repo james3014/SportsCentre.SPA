@@ -11,6 +11,7 @@ import { ShopComponent } from './shop/shop.component';
 import { StaffLoginComponent } from './authentication/staff-login/staff-login.component';
 import { AdminComponent } from './staff/admin/admin.component';
 import { ContactComponent } from './contact/contact.component';
+import { ClassesComponent } from './classes/classes.component';
 
 export const appRoutes: Routes = [
     {path: 'home', component: HomeComponent},
@@ -19,6 +20,7 @@ export const appRoutes: Routes = [
     {path: 'staff', component: StaffLoginComponent},
     {path: 'admin', component: AdminComponent},
     {path: 'contact', component: ContactComponent},
+    {path: 'classes', component: ClassesComponent},
     {path: 'membership/home', component: MembershipHomeComponent},
     {path: 'membership/join', component: MembershipJoinComponent},
     {path: '**', redirectTo: 'home', pathMatch: 'full'},
