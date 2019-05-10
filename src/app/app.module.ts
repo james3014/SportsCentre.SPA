@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import { BsDropdownModule } from 'ngx-bootstrap';
+import { BsDropdownModule, BsDatepickerModule } from 'ngx-bootstrap';
 import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
@@ -46,14 +46,15 @@ import { UserService } from './_services/user.service';
       LoginComponent,
       StaffLoginComponent,
       AdminComponent,
-      ContactComponent
+      ContactComponent,
    ],
    imports: [
       BrowserModule,
       HttpClientModule,
       FormsModule,
+      BsDatepickerModule.forRoot(),
       BsDropdownModule.forRoot(),
-      RouterModule.forRoot(appRoutes)
+      RouterModule.forRoot(appRoutes),
    ],
    providers: [
       AuthService,
