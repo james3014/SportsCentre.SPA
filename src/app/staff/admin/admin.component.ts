@@ -18,4 +18,15 @@ export class AdminComponent implements OnInit {
     };
   }
 
+  addClass() {
+
+  }
+
+  editClass() {
+
+  }
+
+  removeClass() {
+  }
+
 }

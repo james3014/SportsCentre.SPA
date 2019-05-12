@@ -10,4 +10,12 @@ export class DataService {
 
 constructor(private http: HttpClient) { }
 
+getAllBookings() {
+  return this.http.get(this.baseUrl + 'bookings');
+}
+
+createNewBooking(model: any) {
+  return this.http.post(this.baseUrl + 'bookings/create', model);
+}
+
 }

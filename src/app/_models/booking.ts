@@ -6,6 +6,6 @@ export interface Booking {
     bookingName: string;
     bookingDate: Date;
     createdBy: User;
-    hasBeenPaid: boolean;
+    bookingType: string;
     paymentDetail: Payment;
 }

@@ -1,17 +1,17 @@
 import { Routes } from '@angular/router';
-import { HomeComponent } from './home/home.component';
+import { HomeComponent } from './components/home/home.component';
 import { MembershipHomeComponent } from './membership/membership-home/membership-home.component';
 import { MembershipManageComponent } from './membership/membership-manage/membership-manage.component';
 import { RegisterComponent } from './authentication/register/register.component';
 import { MembershipJoinComponent } from './membership/membership-join/membership-join.component';
 import { LoginComponent } from './authentication/login/login.component';
 import { AuthGuard } from './_guards/auth.guard';
-import { BookingComponent } from './booking/booking.component';
-import { ShopComponent } from './shop/shop.component';
+import { BookingComponent } from './components/booking/booking.component';
+import { ShopComponent } from './components/shop/shop.component';
 import { StaffLoginComponent } from './authentication/staff-login/staff-login.component';
 import { AdminComponent } from './staff/admin/admin.component';
-import { ContactComponent } from './contact/contact.component';
-import { ClassesComponent } from './classes/classes.component';
+import { ContactComponent } from './components/contact/contact.component';
+import { ClassesComponent } from './components/classes/classes.component';
 
 export const appRoutes: Routes = [
     {path: 'home', component: HomeComponent},
@@ -21,6 +21,7 @@ export const appRoutes: Routes = [
     {path: 'admin', component: AdminComponent},
     {path: 'contact', component: ContactComponent},
     {path: 'classes', component: ClassesComponent},
+    {path: 'bookings', component: BookingComponent},
     {path: 'membership/home', component: MembershipHomeComponent},
     {path: 'membership/join', component: MembershipJoinComponent},
     {path: '**', redirectTo: 'home', pathMatch: 'full'},

@@ -1,0 +1,35 @@
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+      <div class="card card-signin my-5">
+        <div class="card-body">
+          <h3 class="card-title text-center">Create Booking</h3>
+          <hr>
+          <form #bookingForm="ngForm" (ngSubmit)="createNewBooking()">
+
+            <div class="form-label-group mb-2">
+              <input type="text" class="form-control text-center" name="name" [(ngModel)]="booking.bookingName"
+                placeholder="Booking Name" required autofocus>
+            </div>
+
+            <div class="form-label-group mb-2">
+              <input type="text" class="form-control text-center" name="bookingType" [(ngModel)]="booking.bookingType"
+                placeholder="Booking Type" required autofocus>
+            </div>
+
+            <div class="form-label-group mb-2">
+              <input type="text" class="form-control text-center" name="dob" [(ngModel)]="booking.bookingDate"
+                placeholder="Booking Date" required autofocus bsDatepicker [bsConfig]="bsConfig">
+            </div>
+
+            <button class="btn btn-md btn-primary btn-block " type="submit">Submit</button>
+            <button class="btn btn-md btn-warning btn-block " type="button" routerLinkActive="active"
+              [routerLink]="['/home']">Cancel</button>
+
+          </form>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
