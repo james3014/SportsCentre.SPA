@@ -3,7 +3,6 @@ import { HomeComponent } from './components/home/home.component';
 import { MembershipHomeComponent } from './membership/membership-home/membership-home.component';
 import { MembershipManageComponent } from './membership/membership-manage/membership-manage.component';
 import { RegisterComponent } from './authentication/register/register.component';
-import { MembershipJoinComponent } from './membership/membership-join/membership-join.component';
 import { LoginComponent } from './authentication/login/login.component';
 import { AuthGuard } from './_guards/auth.guard';
 import { BookingComponent } from './components/booking/booking.component';
@@ -12,6 +11,9 @@ import { StaffLoginComponent } from './authentication/staff-login/staff-login.co
 import { AdminComponent } from './staff/admin/admin.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { ClassesComponent } from './components/classes/classes.component';
+import { MembershipAdultComponent } from './membership/members-join/membership-adult/membership-adult.component';
+import { MembershipJuvenileComponent } from './membership/members-join/membership-juvenile/membership-juvenile.component';
+import { MembershipFamilyComponent } from './membership/members-join/membership-family/membership-family.component';
 
 export const appRoutes: Routes = [
     {path: 'home', component: HomeComponent},
@@ -23,7 +25,9 @@ export const appRoutes: Routes = [
     {path: 'classes', component: ClassesComponent},
     {path: 'bookings', component: BookingComponent},
     {path: 'membership/home', component: MembershipHomeComponent},
-    {path: 'membership/join', component: MembershipJoinComponent},
+    {path: 'membership/adult', component: MembershipAdultComponent},
+    {path: 'membership/juvenile', component: MembershipJuvenileComponent},
+    {path: 'membership/family', component: MembershipFamilyComponent},
     {path: '**', redirectTo: 'home', pathMatch: 'full'},
     {
         path: '',

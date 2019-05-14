@@ -18,7 +18,6 @@ import { ShopComponent } from './components/shop/shop.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { MembershipHomeComponent } from './membership/membership-home/membership-home.component';
 import { MembershipManageComponent } from './membership/membership-manage/membership-manage.component';
-import { MembershipJoinComponent } from './membership/membership-join/membership-join.component';
 import { appRoutes } from './routes';
 import { AboutComponent } from './components/about/about.component';
 import { LoginComponent } from './authentication/login/login.component';
@@ -27,6 +26,9 @@ import { StaffLoginComponent } from './authentication/staff-login/staff-login.co
 import { AdminComponent } from './staff/admin/admin.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { UserService } from './_services/user.service';
+import { MembershipAdultComponent } from './membership/members-join/membership-adult/membership-adult.component';
+import { MembershipJuvenileComponent } from './membership/members-join/membership-juvenile/membership-juvenile.component';
+import { MembershipFamilyComponent } from './membership/members-join/membership-family/membership-family.component';
 
 
 @NgModule({
@@ -37,9 +39,11 @@ import { UserService } from './_services/user.service';
       RegisterComponent,
       BookingComponent,
       ClassesComponent,
-      MembershipJoinComponent,
       MembershipHomeComponent,
       MembershipManageComponent,
+      MembershipAdultComponent,
+      MembershipJuvenileComponent,
+      MembershipFamilyComponent,
       ShopComponent,
       FooterComponent,
       AboutComponent,
