@@ -1,0 +1,23 @@
+<div class="card-deck">
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title"><strong>Membership Details</strong></h5>
+      <p class="card-text">{{membershipType}} Payment
+        
+      </p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-body">
+      <h4 class="card-title">Payment Method</h4>
+      <p class="card-text"></p>
+      <hr>
+      <button class="btn btn-secondary mr-2"><i class="fa fa-cc-paypal fa-4x"></i></button>
+      <button class="btn btn-secondary mr-2"><i class="fa fa-cc-visa fa-4x"></i></button>
+      <button class="btn btn-secondary"><i class="fa fa-cc-mastercard fa-4x"></i></button>
+      <button (click)="cancelPaymentMode()" class="btn btn-secondary">Cancel</button>
+
+    </div>
+  </div>
+</div>

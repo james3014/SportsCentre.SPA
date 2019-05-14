@@ -29,6 +29,7 @@ import { UserService } from './_services/user.service';
 import { MembershipAdultComponent } from './membership/members-join/membership-adult/membership-adult.component';
 import { MembershipJuvenileComponent } from './membership/members-join/membership-juvenile/membership-juvenile.component';
 import { MembershipFamilyComponent } from './membership/members-join/membership-family/membership-family.component';
+import { PaymentOptionsComponent } from './components/payment-options/payment-options.component';
 
 
 @NgModule({
@@ -51,6 +52,7 @@ import { MembershipFamilyComponent } from './membership/members-join/membership-
       StaffLoginComponent,
       AdminComponent,
       ContactComponent,
+      PaymentOptionsComponent,
    ],
    imports: [
       BrowserModule,

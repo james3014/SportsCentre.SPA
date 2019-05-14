@@ -16,6 +16,5 @@ export class MembershipService {
 
 constructor(private http: HttpClient) { }
 
-getMembership
 
 }

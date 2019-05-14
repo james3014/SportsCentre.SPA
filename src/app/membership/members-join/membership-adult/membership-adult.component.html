@@ -2,34 +2,22 @@
   <h2>Membership Type</h2>
   <div class="card mb-5">
     <div class="card-body">
-      <h4 class="card-title">{{type}}</h4>
+      <h5 class="card-title">{{type}} - £34.99 Per Month (£374 Annual)</h5>
       <p class="card-text"></p>
       <hr>
-      <h5>£34.99 PER MONTH (£374 ANNUAL)</h5>
-
-      <div class="btn-group mt-2" dropdown>
-        <button id="button-basic" dropdownToggle type="button" class="btn btn-outline-primary dropdown-toggle mr-2"
-          aria-controls="dropdown-basic"> Payment Plan <span class="caret"></span>
-        </button>
-        <button class="btn btn-outline-warning" [routerLink]="['/membership/home']">Cancel</button>
-        <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu" role="menu" aria-labelledby="button-basic">
-          <li role="menuitem"><a class="dropdown-item" href="#">Monthly</a></li>
-          <li role="menuitem"><a class="dropdown-item" href="#">Annual</a></li>
-        </ul>
-      </div>
-
-    </div>
-  </div>
-
-  <div class="card mb-5">
-    <div class="card-body">
-      <h4 class="card-title">Payment Method</h4>
-      <p class="card-text"></p>
-      <hr>
-      <button class="btn btn-secondary mr-2"><i class="fa fa-cc-paypal fa-4x"></i></button>
-      <button class="btn btn-secondary mr-2"><i class="fa fa-cc-visa fa-4x"></i></button>
-      <button class="btn btn-secondary"><i class="fa fa-cc-mastercard fa-4x"></i></button>
-
+      <h5>Payment Plan</h5>
+      <button (click)="monthlySelected(); paymentToggle()" class="btn btn-outline-primary mt-1 mr-2">Monthly</button>
+      <button (click)="annualSelected()" class="btn btn-outline-primary mt-1 mr-2">Annual</button>
+      <button class="btn btn-outline-warning mt-1 mr-2" [routerLink]="['/membership/home']">Cancel</button>
     </div>
   </div>
 </div>
+
+  <div *ngIf="paymentMode">
+    <div class="row justify-content-center">
+      <div class="col-4">
+        <app-payment-options [membershipType]='paymentOption' (cancelPayment)="cancelPaymentMode($event)"></app-payment-options>
+      </div>
+    </div>
+  </div>
+
