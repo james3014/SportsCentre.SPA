@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { UserService } from 'src/app/_services/user.service';
+import { User } from 'src/app/_models/user';
+import { AuthService } from 'src/app/_services/auth.service';
 
 @Component({
   selector: 'app-membership-home',
@@ -7,8 +10,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./membership-home.component.css']
 })
 export class MembershipHomeComponent implements OnInit {
+  
 
-  constructor(private router: Router) { }
+  constructor() { }
 
   ngOnInit() {
   }

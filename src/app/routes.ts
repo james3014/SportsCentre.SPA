@@ -14,6 +14,7 @@ import { ClassesComponent } from './components/classes/classes.component';
 import { MembershipAdultComponent } from './membership/members-join/membership-adult/membership-adult.component';
 import { MembershipJuvenileComponent } from './membership/members-join/membership-juvenile/membership-juvenile.component';
 import { MembershipFamilyComponent } from './membership/members-join/membership-family/membership-family.component';
+import { UserResolver } from './_resolvers/user.resolver';
 
 export const appRoutes: Routes = [
     {path: 'home', component: HomeComponent},
@@ -25,9 +26,9 @@ export const appRoutes: Routes = [
     {path: 'classes', component: ClassesComponent},
     {path: 'bookings', component: BookingComponent},
     {path: 'membership/home', component: MembershipHomeComponent},
-    {path: 'membership/adult', component: MembershipAdultComponent},
-    {path: 'membership/juvenile', component: MembershipJuvenileComponent},
-    {path: 'membership/family', component: MembershipFamilyComponent},
+    {path: 'membership/adult/:id', component: MembershipAdultComponent, resolve: {user: UserResolver}},
+    {path: 'membership/juvenile/:id', component: MembershipJuvenileComponent, resolve: {user: UserResolver}},
+    {path: 'membership/family/:id', component: MembershipFamilyComponent, resolve: {user: UserResolver}},
     {path: '**', redirectTo: 'home', pathMatch: 'full'},
     {
         path: '',

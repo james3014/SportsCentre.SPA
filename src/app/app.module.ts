@@ -32,6 +32,10 @@ import { MembershipFamilyComponent } from './membership/members-join/membership-
 import { PaymentOptionsComponent } from './components/payment-options/payment-options.component';
 
 
+export function tokenGetter() {
+   return localStorage.getItem('token');
+}
+
 @NgModule({
    declarations: [
       AppComponent,

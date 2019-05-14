@@ -18,6 +18,4 @@ export interface User {
     bookings?: Booking[];
     payments?: Payment[];
     orders?: Order[];
-
-
 }
