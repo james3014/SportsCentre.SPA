@@ -10,7 +10,6 @@ import { catchError } from 'rxjs/operators';
 export class UserResolver implements Resolve<User> {
   constructor(
     private userService: UserService,
-    private router: Router,
     private alertify: AlertifyService
   ) {}
 
@@ -18,7 +17,6 @@ export class UserResolver implements Resolve<User> {
         return this.userService.getUser(route.params['id']).pipe (
             catchError(() => {
                 this.alertify.error('Problem Retrieving Data');
-                this.router.navigate(['/membership/adult/:id']);
                 return of(null);
             })
         );

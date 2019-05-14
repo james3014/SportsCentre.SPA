@@ -16,16 +16,9 @@ export class MembershipAdultComponent implements OnInit {
   paymentMode = false;
   paymentOption = 'Default';
 
-  constructor(
-    private userService: UserService,
-    private route: ActivatedRoute,
-    private authService: AuthService
-  ) {}
+  constructor() {}
 
   ngOnInit() {
-    this.route.data.subscribe(data => {
-      this.user = data['user'];
-    });
   }
 
   paymentToggle() {

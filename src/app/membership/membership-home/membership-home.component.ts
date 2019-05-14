@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { UserService } from 'src/app/_services/user.service';
 import { User } from 'src/app/_models/user';
 import { AuthService } from 'src/app/_services/auth.service';
@@ -10,11 +10,14 @@ import { AuthService } from 'src/app/_services/auth.service';
   styleUrls: ['./membership-home.component.css']
 })
 export class MembershipHomeComponent implements OnInit {
-  
+  user: User;
 
-  constructor() { }
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.route.data.subscribe(data => {
+      this.user = data['user'];
+    });
   }
 
 }
