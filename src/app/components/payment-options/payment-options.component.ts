@@ -1,4 +1,7 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { User } from 'src/app/_models/user';
+import { DataService } from 'src/app/_services/data.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-payment-options',
@@ -8,10 +11,12 @@ import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 export class PaymentOptionsComponent implements OnInit {
   @Output() cancelPayment = new EventEmitter();
   @Input() public membershipType: string;
+  user: User;
 
-  constructor() { }
+  constructor(private dataService: DataService, private route: Router) {}
 
   ngOnInit() {
+    this.user = JSON.parse(localStorage.getItem('user'));
   }
 
   cancelPaymentMode() {
@@ -22,5 +27,9 @@ export class PaymentOptionsComponent implements OnInit {
     this.membershipType = membershipType;
   }
 
-
+  confirmMembership() {
+    this.user.membershipType = 'Monthly';
+    console.log(this.user);
+    this.dataService.createMembership(this.user);
+  }
 }

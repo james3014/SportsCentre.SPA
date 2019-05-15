@@ -30,6 +30,7 @@ import { MembershipAdultComponent } from './membership/members-join/membership-a
 import { MembershipJuvenileComponent } from './membership/members-join/membership-juvenile/membership-juvenile.component';
 import { MembershipFamilyComponent } from './membership/members-join/membership-family/membership-family.component';
 import { PaymentOptionsComponent } from './components/payment-options/payment-options.component';
+import { UserResolver } from './_resolvers/user.resolver';
 
 
 export function tokenGetter() {
@@ -71,7 +72,8 @@ export function tokenGetter() {
       ErrorInterceptorProvider,
       AlertifyService,
       AuthGuard,
-      UserService
+      UserService,
+      UserResolver
    ],
    bootstrap: [
       AppComponent

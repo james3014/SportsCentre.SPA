@@ -17,19 +17,12 @@ import { MembershipFamilyComponent } from './membership/members-join/membership-
 import { UserResolver } from './_resolvers/user.resolver';
 
 export const appRoutes: Routes = [
-    {path: 'home', component: HomeComponent},
+    {path: '', component: HomeComponent},
     {path: 'register', component: RegisterComponent},
     {path: 'login', component: LoginComponent},
-    {path: 'staff', component: StaffLoginComponent},
-    {path: 'admin', component: AdminComponent},
-    {path: 'contact', component: ContactComponent},
     {path: 'classes', component: ClassesComponent},
-    {path: 'bookings', component: BookingComponent},
-    {path: 'membership/home', component: MembershipHomeComponent, resolve: {UserResolver}},
-    {path: 'membership/adult/:id', component: MembershipAdultComponent},
-    {path: 'membership/juvenile/:id', component: MembershipJuvenileComponent},
-    {path: 'membership/family/:id', component: MembershipFamilyComponent},
-    {path: '**', redirectTo: 'home', pathMatch: 'full'},
+    {path: 'contact', component: ContactComponent},
+    {path: 'staff', component: StaffLoginComponent},
     {
         path: '',
         runGuardsAndResolvers: 'always',
@@ -37,7 +30,15 @@ export const appRoutes: Routes = [
         children: [
             {path: 'membership/membership-manage', component: MembershipManageComponent},
             {path: 'booking', component: BookingComponent},
-            {path: 'shop', component: ShopComponent}
+            {path: 'shop', component: ShopComponent},
+            {path: 'admin', component: AdminComponent},
+            {path: 'bookings', component: BookingComponent},
+            {path: 'membership/home/:id', component: MembershipHomeComponent, resolve: {UserResolver}},
+            {path: 'membership/adult', component: MembershipAdultComponent},
+            {path: 'membership/juvenile', component: MembershipJuvenileComponent},
+            {path: 'membership/family', component: MembershipFamilyComponent},
+            {path: '**', redirectTo: 'home', pathMatch: 'full'},
         ]
-    }
+    },
+    {path: '**', redirectTo: '', pathMatch: 'full'}
 ];

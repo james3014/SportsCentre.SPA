@@ -2,7 +2,14 @@
   <div class="card">
     <div class="card-body">
       <h5 class="card-title"><strong>Membership Details</strong></h5>
-      <p class="card-text">{{membershipType}} Payment
+    <hr/>
+      <p class="card-text">
+        <strong>{{user.email}}</strong><br>
+        {{user.firstName}} {{user.surname}}<br>
+        {{user.addressLine1}}<br>
+        {{user.addressLine2}}<br>
+        {{user.town}}<br>
+        {{user.postCode}}<br>
         
       </p>
     </div>
@@ -10,13 +17,17 @@
 
   <div class="card">
     <div class="card-body">
-      <h4 class="card-title">Payment Method</h4>
-      <p class="card-text"></p>
+      <h5 class="card-title"><strong>{{membershipType}} Payment Plan</strong></h5>
       <hr>
-      <button class="btn btn-secondary mr-2"><i class="fa fa-cc-paypal fa-4x"></i></button>
-      <button class="btn btn-secondary mr-2"><i class="fa fa-cc-visa fa-4x"></i></button>
-      <button class="btn btn-secondary"><i class="fa fa-cc-mastercard fa-4x"></i></button>
-      <button (click)="cancelPaymentMode()" class="btn btn-secondary">Cancel</button>
+      <p class="card-text">
+        Select Payment Method
+      </p>
+      
+      <button class="btn btn-secondary mr-3"><i class="fa fa-cc-paypal fa-2x"></i></button>
+      <button class="btn btn-secondary mr-3"><i class="fa fa-cc-visa fa-2x"></i></button>
+      <button class="btn btn-secondary"><i class="fa fa-cc-mastercard fa-2x"></i></button>
+      <button (click)='confirmMembership()' class="btn btn-success">Confirm</button>
+      <hr/>
 
     </div>
   </div>

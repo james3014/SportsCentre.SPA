@@ -15,11 +15,10 @@ export class AuthService {
   decodedToken: any;
   currentUser: User;
 
-constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
-login(model: any) {
-  return this.http.post(this.baseUrl + 'login', model)
-    .pipe(
+  login(model: any) {
+    return this.http.post(this.baseUrl + 'login', model).pipe(
       map((response: any) => {
         const user = response;
         if (user) {
@@ -32,11 +31,10 @@ login(model: any) {
         }
       })
     );
-}
+  }
 
-staffLogin(model: any) {
-  return this.http.post(this.baseUrl + 'staff', model)
-    .pipe(
+  staffLogin(model: any) {
+    return this.http.post(this.baseUrl + 'staff', model).pipe(
       map((response: any) => {
         const user = response;
         if (user) {
@@ -46,17 +44,14 @@ staffLogin(model: any) {
         }
       })
     );
+  }
+
+  register(model: any) {
+    return this.http.post(this.baseUrl + 'register', model);
+  }
+
+  loggedIn() {
+    const token = localStorage.getItem('token');
+    return !this.jwtHelper.isTokenExpired(token);
+  }
 }
-
-register(model: any) {
-  return this.http.post(this.baseUrl + 'register', model);
-}
-
-loggedIn() {
-  const token = localStorage.getItem('token');
-  return !this.jwtHelper.isTokenExpired(token);
-}
-
-}
-
-

@@ -2,7 +2,7 @@
   class="d-flex flex-column align-items-center flex-md-row p-3 px-md-4 mb-3 bg-white border-bottom">
   <h5 class="my-0 mr-md-auto font-weight-normal">CCC Sports Centre</h5>
   <a class="p-2 text-dark" [routerLink]="['/home']">Home</a>
-  <a class="p-2 text-dark" [routerLink]="['/membership/home']">Membership</a>
+  <a class="p-2 text-dark" [routerLink]="['/membership/home/:id']">Membership</a>
   <a class="p-2 text-dark" [routerLink]="['/classes']">Classes</a>
   <a class="p-2 text-dark" [routerLink]="['/bookings']">Bookings</a>
   <a class="p-2 text-dark" [routerLink]="['/bookings']">Shop</a>
@@ -29,7 +29,7 @@
   class="d-flex flex-column align-items-center flex-md-row p-3 px-md-4 mb-3 bg-white border-bottom">
   <h5 class="my-0 mr-md-auto font-weight-normal">CCC Sports Centre</h5>
   <a class="p-2 text-dark" [routerLink]="['/home']">Home</a>
-  <a class="p-2 text-dark" [routerLink]="['/membership/home']">Membership</a>
+  <a class="p-2 text-dark" [routerLink]="['/membership/home/, user.id']">Membership</a>
   <a class="p-2 text-dark" [routerLink]="['/classes']">Classes</a>
   <a class="p-2 text-dark" [routerLink]="['/bookings']">Bookings</a>
   <a class="p-2 text-dark" [routerLink]="['/bookings']">Shop</a>

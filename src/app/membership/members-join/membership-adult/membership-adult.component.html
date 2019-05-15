@@ -3,12 +3,12 @@
   <div class="card mb-5">
     <div class="card-body">
       <h5 class="card-title">{{type}} - £34.99 Per Month (£374 Annual)</h5>
-      <p class="card-text">Email: {{user.email}}</p>
+      <p class="card-text"></p>
       <hr>
-      <h5>Payment </h5>
+      <h5>Payment Options</h5>
       <button (click)="monthlySelected(); paymentToggle()" class="btn btn-outline-primary mt-1 mr-2">Monthly</button>
-      <button (click)="annualSelected()" class="btn btn-outline-primary mt-1 mr-2">Annual</button>
-      <button class="btn btn-outline-warning mt-1 mr-2" [routerLink]="['/membership/home']">Cancel</button>
+      <button (click)="annualSelected(); paymentToggle()" class="btn btn-outline-warning mt-1 mr-2">Annual</button>
+      
     </div>
   </div>
 </div>
