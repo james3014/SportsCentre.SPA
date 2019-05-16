@@ -1,13 +1,19 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { map } from 'rxjs/operators';
+
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Authorization': 'Bearer ' + localStorage.getItem('token')
+  })
+};
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
-  baseUrl = environment.apiUrl + 'data/';
+  baseUrl = environment.apiUrl;
 
   constructor(private http: HttpClient) {}
 
@@ -20,7 +26,7 @@ export class DataService {
   }
 
   createMembership(model: any) {
-    return this.http.post(this.baseUrl + 'membership/create', model).pipe(
+    return this.http.post(this.baseUrl + 'data/membership/create', model).pipe(
       map((response: any) => {
         const user = response;
         if (user) {

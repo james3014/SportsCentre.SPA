@@ -2,6 +2,7 @@ import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { User } from 'src/app/_models/user';
 import { DataService } from 'src/app/_services/data.service';
 import { Router } from '@angular/router';
+import { AlertifyService } from 'src/app/_services/alertify.service';
 
 @Component({
   selector: 'app-payment-options',
@@ -13,7 +14,7 @@ export class PaymentOptionsComponent implements OnInit {
   @Input() public membershipType: string;
   user: User;
 
-  constructor(private dataService: DataService, private route: Router) {}
+  constructor(private dataService: DataService, private route: Router, private alertify: AlertifyService) {}
 
   ngOnInit() {
     this.user = JSON.parse(localStorage.getItem('user'));
@@ -30,6 +31,10 @@ export class PaymentOptionsComponent implements OnInit {
   confirmMembership() {
     this.user.membershipType = 'Monthly';
     console.log(this.user);
-    this.dataService.createMembership(this.user);
+    this.dataService.createMembership(this.user).subscribe(() => {
+      this.alertify.success('Membership Purchased');
+    }, error => {
+      this.alertify.error('Membership Purchase Failed');
+    });
   }
 }
