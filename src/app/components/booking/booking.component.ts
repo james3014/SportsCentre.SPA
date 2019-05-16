@@ -12,7 +12,7 @@ import { AuthService } from 'src/app/_services/auth.service';
   styleUrls: ['./booking.component.css']
 })
 export class BookingComponent implements OnInit {
-  booking: Booking;
+  model: any = {};
   bsConfig: Partial<BsDatepickerConfig>;
 
   constructor(private dataService: DataService, private alertify: AlertifyService, private authService: AuthService) { }
@@ -23,12 +23,11 @@ export class BookingComponent implements OnInit {
     };
   }
 
-  createNewBooking() {
-    this.booking.createdBy = this.authService.decodedToken()
-    this.dataService.createNewBooking(this.booking).subscribe(next => {
+  createBooking() {
+    this.dataService.createBooking(this.model).subscribe(next => {
       this.alertify.success('Booking Created');
     }, error => {
-      this.alertify.error(error);
+      this.alertify.error('Booking Failed');
     });
   }
 

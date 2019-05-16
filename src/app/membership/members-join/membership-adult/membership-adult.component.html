@@ -2,23 +2,22 @@
   <h2>Membership Type</h2>
   <div class="card mb-5">
     <div class="card-body">
-      <h5 class="card-title">{{type}} - £34.99 Per Month (£374 Annual)</h5>
+      <h5 class="card-title">{{type}} - £30 Per Month or £300 Annually</h5>
       <p class="card-text"></p>
       <hr>
       <h5>Payment Options</h5>
       <button (click)="monthlySelected(); paymentToggle()" class="btn btn-outline-primary mt-1 mr-2">Monthly</button>
       <button (click)="annualSelected(); paymentToggle()" class="btn btn-outline-warning mt-1 mr-2">Annual</button>
-      
+
     </div>
   </div>
 </div>
 
-  <div *ngIf="paymentMode">
-    <div class="row justify-content-center">
-      <div class="col-4">
-        <app-payment-options 
-        [membershipType]='paymentOption' (cancelPayment)="cancelPaymentMode($event)"></app-payment-options>
-      </div>
+<div *ngIf="paymentMode">
+  <div class="row justify-content-center">
+    <div class="col-4">
+      <app-payment-options [membershipType]='paymentOption' (cancelPayment)="cancelPaymentMode($event)">
+      </app-payment-options>
     </div>
   </div>
-
+</div>

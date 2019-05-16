@@ -5,7 +5,9 @@ export interface Booking {
     id: number;
     bookingName: string;
     bookingDate: Date;
+    contactNumber: string;
     createdBy: User;
-    bookingType: string;
+    facility: string;
+    requirements: string;
     paymentDetail: Payment;
 }

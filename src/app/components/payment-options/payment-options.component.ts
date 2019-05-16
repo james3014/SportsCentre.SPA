@@ -29,12 +29,23 @@ export class PaymentOptionsComponent implements OnInit {
   }
 
   confirmMembership() {
-    this.user.membershipType = 'Monthly';
-    console.log(this.user);
-    this.dataService.createMembership(this.user).subscribe(() => {
-      this.alertify.success('Membership Purchased');
-    }, error => {
-      this.alertify.error('Membership Purchase Failed');
-    });
+    if (this.membershipType === 'Monthly') {
+      this.user.membershipType = 'Monthly';
+      console.log(this.user);
+      this.dataService.createMembership(this.user).subscribe(() => {
+        this.alertify.success('Membership Purchased');
+      }, error => {
+        this.alertify.error('Membership Purchase Failed');
+      });
+    } else {
+      this.user.membershipType = 'Annual';
+      console.log(this.user);
+      this.dataService.createMembership(this.user).subscribe(() => {
+        this.alertify.success('Membership Purchased');
+      }, error => {
+        this.alertify.error('Membership Purchase Failed');
+      });
+    }
+
   }
 }

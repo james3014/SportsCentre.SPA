@@ -21,7 +21,7 @@ export class DataService {
     return this.http.get(this.baseUrl + 'bookings');
   }
 
-  createNewBooking(model: any) {
+  createBooking(model: any) {
     return this.http.post(this.baseUrl + 'bookings/create', model);
   }
 

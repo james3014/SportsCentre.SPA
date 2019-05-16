@@ -28,6 +28,7 @@ export class NavComponent implements OnInit {
     this.authService.decodedToken = null;
     this.authService.currentUser = null;
     this.alertify.message('Logged Out');
+    this.router.navigate(['']);
   }
 
   registerToggle() {
