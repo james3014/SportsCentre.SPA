@@ -24,7 +24,8 @@ export class BookingComponent implements OnInit {
   }
 
   createBooking() {
-    this.dataService.createBooking(this.model).subscribe(next => {
+    const email = this.authService.currentUser.email;
+    this.dataService.createBooking(this.model, email).subscribe(next => {
       this.alertify.success('Booking Created');
     }, error => {
       this.alertify.error('Booking Failed');

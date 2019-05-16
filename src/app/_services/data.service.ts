@@ -5,7 +5,7 @@ import { map } from 'rxjs/operators';
 
 const httpOptions = {
   headers: new HttpHeaders({
-    'Authorization': 'Bearer ' + localStorage.getItem('token')
+    Authorization: 'Bearer ' + localStorage.getItem('token')
   })
 };
 
@@ -21,8 +21,15 @@ export class DataService {
     return this.http.get(this.baseUrl + 'bookings');
   }
 
-  createBooking(model: any) {
-    return this.http.post(this.baseUrl + 'bookings/create', model);
+  createBooking(model: any, email: string) {
+    return this.http.post(this.baseUrl + 'data/bookings/create/' + email, model).pipe(
+      map((response: any) => {
+        const booking = response;
+        if (booking) {
+          console.log(booking);
+        }
+      })
+    );
   }
 
   createMembership(model: any) {
