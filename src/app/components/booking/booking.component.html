@@ -54,30 +54,19 @@
                 placeholder="Booking Date" required autofocus bsDatepicker [bsConfig]="bsConfig">
             </div>
 
-            <select class="custom-select mb-2">
-              <option selected disabled>Booking Time</option>
-              <option value="1">08:00 - 09:00</option>
-              <option value="2">09:00 - 10:00</option>
-              <option value="3">10:00 - 11:00</option>
-              <option value="4">11:00 - 12:00</option>
-              <option value="5">12:00 - 13:00</option>
-              <option value="6">13:00 - 14:00</option>
-              <option value="7">14:00 - 15:00</option>
-              <option value="8">15:00 - 16:00</option>
-              <option value="9">16:00 - 17:00</option>
-              <option value="10">17:00 - 18:00</option>
-              <option value="11">18:00 - 19:00</option>
-              <option value="12">19:00 - 20:00</option>
-            </select>
+            <div class="form-group">
+              <select formControlName="bookingTime" name="bookingTime" [(ngModel)]="model.bookingTime">
+                <option [ngValue]="undefined" disabled selected>Select Time</option>
+                <option *ngFor="let option of options" [ngValue]="option">{{option.label}}</option>
+              </select>
+            </div>
 
-            <select class="form-label-group custom-select mb-2">
+            <select class="form-label-group custom-select mb-2" name="facility" [(ngModel)]="model.facility">
               <option selected disabled>Facilities</option>
-              <option value="1">Full Hall</option>
-              <option value="2">Half Hall</option>
-              <option value="3">Small Area</option>
+              <option [ngValue]="1">Full Hall</option>
+              <option [ngValue]="2">Half Hall</option>
+              <option [ngValue]="3">Small Area</option>
             </select>
-
-
 
             <div class="form-label-group mb-2">
               <div class="form-group">
