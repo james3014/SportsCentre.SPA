@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { map } from 'rxjs/operators';
+import { AuthService } from './auth.service';
+import { Router } from '@angular/router';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -15,14 +17,14 @@ const httpOptions = {
 export class DataService {
   baseUrl = environment.apiUrl;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private authService: AuthService, private router: Router) {}
 
   getAllBookings() {
     return this.http.get(this.baseUrl + 'bookings');
   }
 
-  createBooking(model: any, email: string) {
-    return this.http.post(this.baseUrl + 'data/bookings/create/' + email, model).pipe(
+  createBooking(model: any) {
+    return this.http.post(this.baseUrl + 'data/bookings/create', model).pipe(
       map((response: any) => {
         const booking = response;
         if (booking) {

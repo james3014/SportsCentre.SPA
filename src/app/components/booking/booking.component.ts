@@ -1,15 +1,9 @@
-import { Component, OnInit, Self, Optional } from '@angular/core';
+import { Component, OnInit, Self, Optional, ViewChild, HostListener } from '@angular/core';
 import { DataService } from '../../_services/data.service';
 import { AlertifyService } from 'src/app/_services/alertify.service';
 import { BsDatepickerConfig } from 'ngx-bootstrap';
 import { AuthService } from 'src/app/_services/auth.service';
-import {
-  FormGroup,
-  FormControl,
-  Validators,
-  ReactiveFormsModule,
-  NgControl
-} from '@angular/forms';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-booking',
@@ -17,32 +11,22 @@ import {
   styleUrls: ['./booking.component.css']
 })
 export class BookingComponent implements OnInit {
+  @ViewChild('bookingForm') bookingForm: NgForm;
   model: any = {};
   bsConfig: Partial<BsDatepickerConfig>;
+  email = this.authService.currentUser.email;
+  @HostListener('window:beforeunload', ['$event'])
 
-  form = new FormGroup({
-    bookingTime: new FormControl(null, Validators.required)
-  });
-
-  options = [
-    { id: 1, label: '08:00 - 09:00' },
-    { id: 2, label: '09:00 - 10:00' },
-    { id: 3, label: '10:00 - 11:00' },
-    { id: 4, label: '11:00 - 12:00' },
-    { id: 5, label: '12:00 - 13:00' },
-    { id: 6, label: '13:00 - 14:00' },
-    { id: 7, label: '14:00 - 15:00' },
-    { id: 8, label: '15:00 - 16:00' },
-    { id: 9, label: '16:00 - 17:00' },
-    { id: 10, label: '17:00 - 18:00' },
-    { id: 11, label: '18:00 - 19:00' },
-    { id: 12, label: '19:00 - 20:00' },
-  ];
+  unloadNotification($event: any) {
+    if (this.bookingForm.dirty) {
+      $event.returnValue = true;
+    }
+  }
 
   constructor(
     private dataService: DataService,
     private alertify: AlertifyService,
-    private authService: AuthService,
+    private authService: AuthService
   ) {}
 
   ngOnInit() {
@@ -52,10 +36,10 @@ export class BookingComponent implements OnInit {
   }
 
   createBooking() {
-    const email = this.authService.currentUser.email;
-    this.dataService.createBooking(this.model, email).subscribe(
+    this.dataService.createBooking(this.model).subscribe(
       next => {
         this.alertify.success('Booking Created');
+        this.bookingForm.reset();
       },
       error => {
         this.alertify.error('Booking Failed');

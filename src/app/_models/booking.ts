@@ -9,5 +9,4 @@ export interface Booking {
     createdBy: User;
     facility: string;
     requirements: string;
-    paymentDetail: Payment;
 }
