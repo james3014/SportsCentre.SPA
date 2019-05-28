@@ -44,4 +44,16 @@ export class DataService {
       })
     );
   }
+
+  createClass(model: any) {
+    return this.http.post(this.baseUrl + '/data/classes/create', model).pipe(
+      map((response: any) => {
+        const createdClass = response;
+        if (createdClass) {
+          console.log(createdClass);
+        }
+      })
+    );
+  }
+
 }

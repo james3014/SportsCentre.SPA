@@ -1,5 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, HostListener } from '@angular/core';
 import { BsDatepickerConfig } from 'ngx-bootstrap';
+import { DataService } from 'src/app/_services/data.service';
+import { AlertifyService } from 'src/app/_services/alertify.service';
+import { AuthService } from 'src/app/_services/auth.service';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-admin',
@@ -7,10 +11,22 @@ import { BsDatepickerConfig } from 'ngx-bootstrap';
   styleUrls: ['./admin.component.css']
 })
 export class AdminComponent implements OnInit {
+  @ViewChild('createClassForm') createClassForm: NgForm;
   model: any = {};
   bsConfig: Partial<BsDatepickerConfig>;
+  @HostListener('window:beforeunload', ['$event'])
 
-  constructor() { }
+  unloadNotification($event: any) {
+    if (this.createClassForm.dirty) {
+      $event.returnValue = true;
+    }
+  }
+
+  constructor(
+    private dataService: DataService,
+    private alertify: AlertifyService,
+    private authService: AuthService
+  ) {}
 
   ngOnInit() {
     this.bsConfig = {
@@ -18,15 +34,19 @@ export class AdminComponent implements OnInit {
     };
   }
 
-  addClass() {
-
+  createClass() {
+    this.dataService.createClass(this.model).subscribe(
+      next => {
+        this.alertify.success('Class Created');
+        this.createClassForm.reset();
+      },
+      error => {
+        this.alertify.error('Create Class Failed');
+      }
+    );
   }
 
-  editClass() {
+  editClass() {}
 
-  }
-
-  removeClass() {
-  }
-
+  removeClass() {}
 }

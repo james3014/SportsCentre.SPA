@@ -36,11 +36,14 @@ export class AuthService {
   staffLogin(model: any) {
     return this.http.post(this.baseUrl + 'staff', model).pipe(
       map((response: any) => {
-        const user = response;
-        if (user) {
-          localStorage.setItem('token', user.token);
-          this.decodedToken = this.jwtHelper.decodeToken(user.token);
+        const staff = response;
+        if (staff) {
+          localStorage.setItem('token', staff.token);
+          localStorage.setItem('staff', JSON.stringify(staff.token));
+          this.decodedToken = this.jwtHelper.decodeToken(staff.token);
+          this.currentUser = staff.staff;
           console.log(this.decodedToken);
+          console.log(this.currentUser);
         }
       })
     );
