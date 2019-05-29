@@ -12,7 +12,12 @@
             </div>
 
             <div class="form-label-group mb-2">
-              <input type="text" id="cost" class="form-control text-center" name="firstName"
+              <input type="password" id="password" class="form-control text-center" name="password"
+                [(ngModel)]="model.password" placeholder="Password" required autofocus>
+            </div>
+
+            <div class="form-label-group mb-2">
+              <input type="text" id="firstName" class="form-control text-center" name="firstName"
                 [(ngModel)]="model.firstName" placeholder="First Name" required autofocus>
             </div>
 
@@ -38,7 +43,7 @@
 
             <div class="form-label-group mb-2">
               <input type="text" id="postCode" class="form-control text-center" name="postCode"
-                [(ngModel)]="model.psotCode" placeholder="Post Code" required autofocus>
+                [(ngModel)]="model.postCode" placeholder="Post Code" required autofocus>
             </div>
 
             <div class="form-label-group mb-2">
@@ -66,7 +71,7 @@
       <div class="row">
         <div class="container mr-4 ml-4">
 
-          <form #editClassForm="ngForm" (ngSubmit)="editClass()">
+          <form #editStaffForm="ngForm" (ngSubmit)="editStaff()">
             <div class="form-label-group mb-2">
               <input type="text" id="inputName" class="form-control text-center" name="name"
                 [(ngModel)]="model.inputName" placeholder="Name" required autofocus>
@@ -100,7 +105,7 @@
       <div class="row">
         <div class="container mr-4 ml-4">
 
-          <form #removeClassForm="ngForm" (ngSubmit)="removeClass()">
+          <form #removeStaffForm="ngForm" (ngSubmit)="removeStaff()">
             <div class="form-label-group mb-2" dropdown>
               <button id="button-basic" dropdownToggle type="button"
                 class="btn btn-outline-primary dropdown-toggle mr-2">Select Class<span class="caret"></span>

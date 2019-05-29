@@ -1,4 +1,4 @@
-<div class="container">
+
   <div id="group" class="card-group">
     <div class="card">
       <div class="card-block">
@@ -22,9 +22,19 @@
                   [(ngModel)]="model.maxAttendees" placeholder="Maximum Members" required autofocus>
               </div>
 
+              <!--
+              <div class="form-group">
+                <label for="attendant">Attendant</label>
+                <select id="attendant" class="form-control">
+                  <option value=""></option>
+                  <option *ngFor="let a of attendants" value="{{a.id}}">{{a.firstName + a.surname}}</option>
+                </select>
+              </div>
+              -->
+
               <div class="form-label-group mb-2">
                 <input type="text" id="attendant" class="form-control text-center" name="attendant"
-                  [(ngModel)]="model.attendant" placeholder="Attendant" required autofocus>
+                  [(ngModel)]="model.attendantEmail" placeholder="Attendant" required autofocus>
               </div>
 
               <div class="form-label-group mb-2">
@@ -121,4 +131,3 @@
       </div>
     </div>
   </div>
-</div>

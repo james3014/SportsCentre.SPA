@@ -1,6 +1,9 @@
 import { Component, OnInit, ViewChild, HostListener } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { BsDatepickerConfig } from 'ngx-bootstrap';
+import { UserService } from 'src/app/_services/user.service';
+import { AlertifyService } from 'src/app/_services/alertify.service';
+import { AuthService } from 'src/app/_services/auth.service';
 
 @Component({
   selector: 'app-admin-staff',
@@ -19,9 +22,24 @@ export class AdminStaffComponent implements OnInit {
     }
   }
 
-  constructor() { }
+  constructor(private authService: AuthService, private alertify: AlertifyService) { }
 
   ngOnInit() {
+    this.bsConfig = {
+      containerClass: 'theme-orange'
+    };
+  }
+
+  createStaff() {
+    this.authService.createStaff(this.model).subscribe(
+      next => {
+        this.alertify.success('Staff Member Created');
+        this.createStaffForm.reset();
+      },
+      error => {
+        this.alertify.error('Failed To Create Staff');
+      }
+    );
   }
 
 }

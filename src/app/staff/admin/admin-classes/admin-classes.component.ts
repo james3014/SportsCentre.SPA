@@ -16,7 +16,7 @@ export class AdminClassesComponent implements OnInit {
   model: any = {};
   bsConfig: Partial<BsDatepickerConfig>;
   @HostListener('window:beforeunload', ['$event'])
-  attendants: Staff[];
+  attendants: Staff;
 
   unloadNotification($event: any) {
     if (this.createClassForm.dirty) {
@@ -38,6 +38,8 @@ export class AdminClassesComponent implements OnInit {
     this.route.data.subscribe(data => {
       this.attendants = data['attendants'];
     });
+
+    console.log(this.attendants);
   }
 
   createClass() {
