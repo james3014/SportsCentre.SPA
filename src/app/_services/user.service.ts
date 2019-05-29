@@ -3,6 +3,7 @@ import { environment } from 'src/environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { User } from '../_models/user';
+import { Staff } from '../_models/staff';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -18,8 +19,8 @@ export class UserService {
 
   constructor(private http: HttpClient) {}
 
-  getUsers(): Observable<User[]> {
-    return this.http.get<User[]>(this.baseUrl + 'data/users');
+  getAttendants(): Observable<Staff[]> {
+    return this.http.get<Staff[]>(this.baseUrl + 'user/attendants');
   }
 
   getUser(id: number): Observable<User> {

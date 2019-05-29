@@ -1,136 +1,53 @@
 <div id="main" class="card text-black bg-white text-center">
   <div class="card-body mt-3">
     <h2 class="card-title">Administration</h2>
-    <p class="card-text mb-5 mt-3">
-      <button class="btn btn-outline-warning inline mr-4">Club</button>
-      <button class="btn btn-outline-warning inline mr-4">Members</button>
-      <button class="btn btn-outline-warning inline mr-4">Bookings</button>
-      <button class="btn btn-outline-warning inline">Staff</button>
-      <button class="btn btn-outline-warning inline ml-4">Reporting</button>
+    <p class="card-text mb-3 mt-3">
+      <button (click)=classToggle() class="btn btn-outline-warning inline mr-4">Classes</button>
+      <button (click)=memberToggle() class="btn btn-outline-warning inline mr-4">Members</button>
+      <button (click)=bookingToggle() class="btn btn-outline-warning inline mr-4">Bookings</button>
+      <button (click)=staffToggle() class="btn btn-outline-warning inline">Staff</button>
+      <button (click)=reportingToggle() class="btn btn-outline-warning inline ml-4">Reporting</button>
     </p>
   </div>
 </div>
 
-<div id="group" class="card-group">
-  <div class="card">
-    <div class="card-block">
-      <h4 class="card-title mt-2 text-center">Add Class</h4>
-      <div class="row">
-        <div class="container mr-4 ml-4">
-
-          <form #createClassForm="ngForm" (ngSubmit)="createClass()">
-            <div class="form-label-group mb-2">
-              <input type="text" id="className" class="form-control text-center" name="className"
-                [(ngModel)]="model.className" placeholder="Name" required autofocus>
-            </div>
-
-            <div class="form-label-group mb-2">
-              <input type="text" id="cost" class="form-control text-center" name="cost" [(ngModel)]="model.cost"
-                placeholder="Cost" required autofocus>
-            </div>
-
-            <div class="form-label-group mb-2">
-              <input type="number" id="maxAttendees" class="form-control text-center" name="maxAttendees" [(ngModel)]="model.maxAttendees"
-                placeholder="Maximum Members" required autofocus>
-            </div>
-
-            <div class="form-label-group mb-2">
-              <input type="text" id="attendant" class="form-control text-center" name="attendant"
-                [(ngModel)]="model.attendant" placeholder="Attendant" required autofocus>
-            </div>
-
-            <div class="form-label-group mb-2">
-              <input type="text" class="form-control text-center" name="classDate" [(ngModel)]="model.classDate"
-                placeholder="When" required autofocus bsDatepicker [bsConfig]="bsConfig">
-            </div>
-
-            <select class="form-label-group custom-select mb-2" name="classTime" [(ngModel)]="model.classTime">
-              <option selected disabled>Select Time Slot</option>
-              <option [ngValue]="1">08:00 - 09:00</option>
-              <option [ngValue]="2">09:00 - 10:00</option>
-              <option [ngValue]="3">10:00 - 11:00</option>
-              <option [ngValue]="4">11:00 - 12:00</option>
-              <option [ngValue]="5">12:00 - 13:00</option>
-              <option [ngValue]="6">13:00 - 14:00</option>
-              <option [ngValue]="7">14:00 - 15:00</option>
-              <option [ngValue]="8">15:00 - 16:00</option>
-              <option [ngValue]="9">16:00 - 17:00</option>
-              <option [ngValue]="10">17:00 - 18:00</option>
-              <option [ngValue]="11">18:00 - 19:00</option>
-              <option [ngValue]="12">19:00 - 20:00</option>
-            </select>
-
-            <select class="form-label-group custom-select mb-2" name="facility" [(ngModel)]="model.facility">
-              <option selected disabled>Facilities</option>
-              <option [ngValue]="1">Full Hall</option>
-              <option [ngValue]="2">Half Hall</option>
-              <option [ngValue]="3">Small Area</option>
-            </select>
-
-            <button class="btn btn-md btn-primary btn-block " type="submit">Create Class</button>
-            <button class="btn btn-md btn-warning btn-block " type="button" [routerLink]="['']">Cancel</button>
-
-          </form>
-
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="card">
-    <div class="card-block">
-      <h4 class="card-title mt-2 text-center">Edit Class</h4>
-      <div class="row">
-        <div class="container mr-4 ml-4">
-
-          <form #editClassForm="ngForm" (ngSubmit)="editClass()">
-            <div class="form-label-group mb-2">
-              <input type="text" id="inputName" class="form-control text-center" name="name"
-                [(ngModel)]="model.inputName" placeholder="Name" required autofocus>
-            </div>
-
-            <div class="form-label-group mb-2">
-              <input type="text" id="inputCost" class="form-control text-center" name="cost" [(ngModel)]="model.cost"
-                placeholder="Cost" required autofocus>
-            </div>
-
-            <div class="form-label-group mb-2">
-              <input type="text" id="inputAttendant" class="form-control text-center" name="attendant"
-                [(ngModel)]="model.attendant" placeholder="Attendant" required autofocus>
-            </div>
-
-            <div class="form-label-group mb-4">
-              <input type="text" class="form-control text-center" name="date" [(ngModel)]="model.date"
-                placeholder="When" required autofocus bsDatepicker [bsConfig]="bsConfig">
-            </div>
-
-          </form>
-
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="card-block">
-      <h4 class="card-title mt-2 text-center">Remove Class</h4>
-      <div class="row">
-        <div class="container mr-4 ml-4">
-
-          <form #removeClassForm="ngForm" (ngSubmit)="removeClass()">
-            <div class="form-label-group mb-2" dropdown>
-              <button id="button-basic" dropdownToggle type="button"
-                class="btn btn-outline-primary dropdown-toggle mr-2">Select Class<span class="caret"></span>
-              </button>
-              <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu" role="menu">
-
-              </ul>
-            </div>
-
-
-          </form>
-
-        </div>
-      </div>
+<div *ngIf="classMode">
+  <div class="row justify-content-center">
+    <div class="col-4">
+      <app-admin-classes></app-admin-classes>
     </div>
   </div>
 </div>
+
+<div *ngIf="memberMode">
+  <div class="row justify-content-center">
+    <div class="col-4">
+      <app-admin-members></app-admin-members>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="bookingMode">
+  <div class="row justify-content-center">
+    <div class="col-4">
+      <app-admin-bookings></app-admin-bookings>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="staffMode">
+  <div class="row justify-content-center">
+    <div class="col-4">
+      <app-admin-staff></app-admin-staff>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="reportingMode">
+  <div class="row justify-content-center">
+    <div class="col-4">
+      <app-admin-reporting></app-admin-reporting>
+    </div>
+  </div>
+</div>
+

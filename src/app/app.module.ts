@@ -31,6 +31,12 @@ import { MembershipJuvenileComponent } from './membership/members-join/membershi
 import { MembershipFamilyComponent } from './membership/members-join/membership-family/membership-family.component';
 import { PaymentOptionsComponent } from './components/payment-options/payment-options.component';
 import { UserResolver } from './_resolvers/user.resolver';
+import { AdminClassesComponent } from './staff/admin/admin-classes/admin-classes.component';
+import { AdminBookingsComponent } from './staff/admin/admin-bookings/admin-bookings.component';
+import { AdminMembersComponent } from './staff/admin/admin-members/admin-members.component';
+import { AdminReportingComponent } from './staff/admin/admin-reporting/admin-reporting.component';
+import { AdminStaffComponent } from './staff/admin/admin-staff/admin-staff.component';
+import { StaffResolver } from './_resolvers/staff.resolver';
 
 
 export function tokenGetter() {
@@ -58,6 +64,11 @@ export function tokenGetter() {
       AdminComponent,
       ContactComponent,
       PaymentOptionsComponent,
+      AdminClassesComponent,
+      AdminBookingsComponent,
+      AdminMembersComponent,
+      AdminReportingComponent,
+      AdminStaffComponent
    ],
    imports: [
       BrowserModule,
@@ -75,7 +86,8 @@ export function tokenGetter() {
       AlertifyService,
       AuthGuard,
       UserService,
-      UserResolver
+      UserResolver,
+      StaffResolver
    ],
    bootstrap: [
       AppComponent

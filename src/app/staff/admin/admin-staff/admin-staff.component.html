@@ -1,0 +1,120 @@
+<div id="group" class="card-group">
+  <div class="card">
+    <div class="card-block">
+      <h4 class="card-title mt-2 text-center">Add Staff</h4>
+      <div class="row">
+        <div class="container mr-4 ml-4 mb-2">
+
+          <form #createStaffForm="ngForm" (ngSubmit)="createStaff()">
+            <div class="form-label-group mb-2">
+              <input type="email" id="email" class="form-control text-center" name="email" [(ngModel)]="model.email"
+                placeholder="Email" required autofocus>
+            </div>
+
+            <div class="form-label-group mb-2">
+              <input type="text" id="cost" class="form-control text-center" name="firstName"
+                [(ngModel)]="model.firstName" placeholder="First Name" required autofocus>
+            </div>
+
+            <div class="form-label-group mb-2">
+              <input type="text" id="surname" class="form-control text-center" name="surname"
+                [(ngModel)]="model.surname" placeholder="Surname" required autofocus>
+            </div>
+
+            <div class="form-label-group mb-2">
+              <input type="text" id="addressLine1" class="form-control text-center" name="addressLine1"
+                [(ngModel)]="model.addressLine1" placeholder="Address" required autofocus>
+            </div>
+
+            <div class="form-label-group mb-2">
+              <input type="text" id="addressLine2" class="form-control text-center" name="addressLine2"
+                [(ngModel)]="model.addressLine2" placeholder="Address" required autofocus>
+            </div>
+
+            <div class="form-label-group mb-2">
+              <input type="text" id="town" class="form-control text-center" name="town"
+                [(ngModel)]="model.town" placeholder="City" required autofocus>
+            </div>
+
+            <div class="form-label-group mb-2">
+              <input type="text" id="postCode" class="form-control text-center" name="postCode"
+                [(ngModel)]="model.psotCode" placeholder="Post Code" required autofocus>
+            </div>
+
+            <div class="form-label-group mb-2">
+              <input type="text" class="form-control text-center" name="dateOfBirth" [(ngModel)]="model.dateOfBirth"
+                placeholder="Date of Birth" required autofocus bsDatepicker [bsConfig]="bsConfig">
+            </div>
+
+            <div class="form-label-group mb-2">
+              <input type="text" id="role" class="form-control text-center" name="role"
+                [(ngModel)]="model.role" placeholder="Role" required autofocus>
+            </div>
+
+            <button class="btn btn-md btn-primary btn-block " type="submit">Create Class</button>
+            <button class="btn btn-md btn-warning btn-block " type="button" [routerLink]="['']">Cancel</button>
+
+          </form>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-block">
+      <h4 class="card-title mt-2 text-center">Edit Staff</h4>
+      <div class="row">
+        <div class="container mr-4 ml-4">
+
+          <form #editClassForm="ngForm" (ngSubmit)="editClass()">
+            <div class="form-label-group mb-2">
+              <input type="text" id="inputName" class="form-control text-center" name="name"
+                [(ngModel)]="model.inputName" placeholder="Name" required autofocus>
+            </div>
+
+            <div class="form-label-group mb-2">
+              <input type="text" id="inputCost" class="form-control text-center" name="cost" [(ngModel)]="model.cost"
+                placeholder="Cost" required autofocus>
+            </div>
+
+            <div class="form-label-group mb-2">
+              <input type="text" id="inputAttendant" class="form-control text-center" name="attendant"
+                [(ngModel)]="model.attendant" placeholder="Attendant" required autofocus>
+            </div>
+
+            <div class="form-label-group mb-4">
+              <input type="text" class="form-control text-center" name="date" [(ngModel)]="model.date"
+                placeholder="When" required autofocus bsDatepicker [bsConfig]="bsConfig">
+            </div>
+
+          </form>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-block">
+      <h4 class="card-title mt-2 text-center">Remove Staff</h4>
+      <div class="row">
+        <div class="container mr-4 ml-4">
+
+          <form #removeClassForm="ngForm" (ngSubmit)="removeClass()">
+            <div class="form-label-group mb-2" dropdown>
+              <button id="button-basic" dropdownToggle type="button"
+                class="btn btn-outline-primary dropdown-toggle mr-2">Select Class<span class="caret"></span>
+              </button>
+              <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu" role="menu">
+
+              </ul>
+            </div>
+
+
+          </form>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

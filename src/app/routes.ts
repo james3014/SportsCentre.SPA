@@ -15,6 +15,7 @@ import { MembershipAdultComponent } from './membership/members-join/membership-a
 import { MembershipJuvenileComponent } from './membership/members-join/membership-juvenile/membership-juvenile.component';
 import { MembershipFamilyComponent } from './membership/members-join/membership-family/membership-family.component';
 import { UserResolver } from './_resolvers/user.resolver';
+import { StaffResolver } from './_resolvers/staff.resolver';
 
 export const appRoutes: Routes = [
     {path: '', component: HomeComponent},
@@ -31,7 +32,7 @@ export const appRoutes: Routes = [
             {path: 'membership/membership-manage', component: MembershipManageComponent},
             {path: 'booking', component: BookingComponent},
             {path: 'shop', component: ShopComponent},
-            {path: 'admin', component: AdminComponent},
+            {path: 'admin', component: AdminComponent, resolve: {StaffResolver}},
             {path: 'bookings', component: BookingComponent},
             {path: 'membership/home/:id', component: MembershipHomeComponent, resolve: {UserResolver}},
             {path: 'membership/adult', component: MembershipAdultComponent},
