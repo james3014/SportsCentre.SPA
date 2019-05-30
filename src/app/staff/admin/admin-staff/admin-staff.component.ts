@@ -4,6 +4,7 @@ import { BsDatepickerConfig } from 'ngx-bootstrap';
 import { UserService } from 'src/app/_services/user.service';
 import { AlertifyService } from 'src/app/_services/alertify.service';
 import { AuthService } from 'src/app/_services/auth.service';
+import { Staff } from 'src/app/_models/staff';
 
 @Component({
   selector: 'app-admin-staff',
@@ -15,6 +16,8 @@ export class AdminStaffComponent implements OnInit {
   model: any = {};
   bsConfig: Partial<BsDatepickerConfig>;
   @HostListener('window:beforeunload', ['$event'])
+  staff: Staff[];
+  id: number;
 
   unloadNotification($event: any) {
     if (this.createStaffForm.dirty) {
@@ -22,12 +25,19 @@ export class AdminStaffComponent implements OnInit {
     }
   }
 
-  constructor(private authService: AuthService, private alertify: AlertifyService) { }
+  constructor(private authService: AuthService, private alertify: AlertifyService, private userService: UserService) { }
 
   ngOnInit() {
     this.bsConfig = {
       containerClass: 'theme-orange'
     };
+
+    this.userService.getStaff().subscribe((staff: Staff[]) => {
+      this.staff = staff;
+      console.log('Staff', this.staff);
+    }, error => {
+      this.alertify.error('Failed To Load Staff');
+    });
   }
 
   createStaff() {
@@ -38,6 +48,18 @@ export class AdminStaffComponent implements OnInit {
       },
       error => {
         this.alertify.error('Failed To Create Staff');
+      }
+    );
+  }
+
+  removeStaff() {
+    console.log(this.id);
+    this.authService.deleteStaff(this.id).subscribe(
+      next => {
+        this.alertify.success('Staff Deleted');
+      },
+      error => {
+        this.alertify.error(error);
       }
     );
   }

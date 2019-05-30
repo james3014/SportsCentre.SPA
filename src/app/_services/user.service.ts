@@ -23,6 +23,10 @@ export class UserService {
     return this.http.get<Staff[]>(this.baseUrl + 'user/attendants');
   }
 
+  getStaff(): Observable<Staff[]> {
+    return this.http.get<Staff[]>(this.baseUrl + 'user/staff');
+  }
+
   getUser(id: number): Observable<User> {
     return this.http.get<User>(this.baseUrl + 'data/users/' + id, httpOptions);
   }

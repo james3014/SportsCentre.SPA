@@ -57,6 +57,18 @@ export class AuthService {
     return this.http.post(this.baseUrl  + 'staff/create', model);
   }
 
+  deleteStaff(id: number) {
+    return this.http.delete(this.baseUrl + 'staff/delete/' + id).pipe(
+      map((response: any) => {
+        const deletedStaff = response;
+        if (deletedStaff) {
+          console.log(deletedStaff);
+        }
+      })
+    );
+  }
+
+
   loggedIn() {
     const token = localStorage.getItem('token');
     return !this.jwtHelper.isTokenExpired(token);

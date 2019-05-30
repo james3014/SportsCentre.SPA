@@ -105,18 +105,18 @@
       <div class="row">
         <div class="container mr-4 ml-4">
 
-          <form #removeStaffForm="ngForm" (ngSubmit)="removeStaff()">
-            <div class="form-label-group mb-2" dropdown>
-              <button id="button-basic" dropdownToggle type="button"
-                class="btn btn-outline-primary dropdown-toggle mr-2">Select Class<span class="caret"></span>
-              </button>
-              <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu" role="menu">
+            <form #removeClassForm="ngForm" (ngSubmit)="removeStaff()">
 
-              </ul>
-            </div>
+                <div class="form-label-group mb-2">
+                  <p></p>
+                <select id="id" class="form-control text-center" name="id" [(ngModel)]="id">
+                  <option *ngFor="let s of staff" value="{{s.id}}">{{s.firstName.toString()}} {{s.surname.toString()}}</option>
+                </select>
+              </div>
+  
+              <button class="btn btn-md btn-primary btn-block " type="submit">Delete Staff</button>
 
-
-          </form>
+            </form>
 
         </div>
       </div>
