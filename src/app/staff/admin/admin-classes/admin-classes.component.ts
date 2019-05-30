@@ -5,6 +5,8 @@ import { Staff } from 'src/app/_models/staff';
 import { DataService } from 'src/app/_services/data.service';
 import { AlertifyService } from 'src/app/_services/alertify.service';
 import { ActivatedRouteSnapshot, ActivatedRoute } from '@angular/router';
+import { UserService } from 'src/app/_services/user.service';
+import { Class } from 'src/app/_models/class';
 
 @Component({
   selector: 'app-admin-classes',
@@ -16,7 +18,9 @@ export class AdminClassesComponent implements OnInit {
   model: any = {};
   bsConfig: Partial<BsDatepickerConfig>;
   @HostListener('window:beforeunload', ['$event'])
-  attendants: Staff;
+  attendants: Staff[];
+  classes: Class[];
+  id: number;
 
   unloadNotification($event: any) {
     if (this.createClassForm.dirty) {
@@ -27,7 +31,8 @@ export class AdminClassesComponent implements OnInit {
   constructor(
     private dataService: DataService,
     private alertify: AlertifyService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private userService: UserService
   ) {}
 
   ngOnInit() {
@@ -35,11 +40,23 @@ export class AdminClassesComponent implements OnInit {
       containerClass: 'theme-orange'
     };
 
-    this.route.data.subscribe(data => {
-      this.attendants = data['attendants'];
+    this.userService.getAttendants().subscribe((attendants: Staff[]) => {
+      this.attendants = attendants;
+      console.log('Attendants', this.attendants);
+    }, error => {
+      this.alertify.error('Failed To Load Attendants');
     });
 
-    console.log(this.attendants);
+    this.dataService.getClasses().subscribe((classes: Class[]) => {
+      this.classes = classes;
+      console.log('Classes', this.classes);
+    }, error => {
+      this.alertify.error('Failed To Load Classes');
+    });
+
+    // this.route.data.subscribe(data => {
+    //   this.attendants = data['attendants'];
+    // });
   }
 
   createClass() {
@@ -56,5 +73,15 @@ export class AdminClassesComponent implements OnInit {
 
   editClass() {}
 
-  removeClass() {}
+  removeClass() {
+    console.log(this.id);
+    this.dataService.deleteClass(this.id).subscribe(
+      next => {
+        this.alertify.success('Class Deleted');
+      },
+      error => {
+        this.alertify.error(error);
+      }
+    );
+  }
 }

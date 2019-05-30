@@ -16,12 +16,14 @@ import { MembershipJuvenileComponent } from './membership/members-join/membershi
 import { MembershipFamilyComponent } from './membership/members-join/membership-family/membership-family.component';
 import { UserResolver } from './_resolvers/user.resolver';
 import { StaffResolver } from './_resolvers/staff.resolver';
+import { ClassResolver } from './_resolvers/class.resolver';
+import { ClassBookingComponent } from './components/classes/class-booking/class-booking.component';
 
 export const appRoutes: Routes = [
     {path: '', component: HomeComponent},
     {path: 'register', component: RegisterComponent},
     {path: 'login', component: LoginComponent},
-    {path: 'classes', component: ClassesComponent},
+    {path: 'classes', component: ClassesComponent, resolve: {ClassResolver}},
     {path: 'contact', component: ContactComponent},
     {path: 'staff', component: StaffLoginComponent},
     {
@@ -31,6 +33,7 @@ export const appRoutes: Routes = [
         children: [
             {path: 'membership/membership-manage', component: MembershipManageComponent},
             {path: 'booking', component: BookingComponent},
+            {path: 'class/booking', component: ClassBookingComponent},
             {path: 'shop', component: ShopComponent},
             {path: 'admin', component: AdminComponent, resolve: {StaffResolver}},
             {path: 'bookings', component: BookingComponent},

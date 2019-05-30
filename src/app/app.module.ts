@@ -37,6 +37,9 @@ import { AdminMembersComponent } from './staff/admin/admin-members/admin-members
 import { AdminReportingComponent } from './staff/admin/admin-reporting/admin-reporting.component';
 import { AdminStaffComponent } from './staff/admin/admin-staff/admin-staff.component';
 import { StaffResolver } from './_resolvers/staff.resolver';
+import { ClassResolver } from './_resolvers/class.resolver';
+import { ClassCardComponent } from './components/classes/class-card/class-card.component';
+import { ClassBookingComponent } from './components/classes/class-booking/class-booking.component';
 
 
 export function tokenGetter() {
@@ -68,7 +71,9 @@ export function tokenGetter() {
       AdminBookingsComponent,
       AdminMembersComponent,
       AdminReportingComponent,
-      AdminStaffComponent
+      AdminStaffComponent,
+      ClassCardComponent,
+      ClassBookingComponent
    ],
    imports: [
       BrowserModule,
@@ -87,7 +92,8 @@ export function tokenGetter() {
       AuthGuard,
       UserService,
       UserResolver,
-      StaffResolver
+      StaffResolver,
+      ClassResolver
    ],
    bootstrap: [
       AppComponent

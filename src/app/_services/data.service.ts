@@ -4,6 +4,8 @@ import { environment } from 'src/environments/environment';
 import { map } from 'rxjs/operators';
 import { AuthService } from './auth.service';
 import { Router } from '@angular/router';
+import { Class } from '../_models/class';
+import { Observable } from 'rxjs';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -24,7 +26,18 @@ export class DataService {
   }
 
   createBooking(model: any) {
-    return this.http.post(this.baseUrl + 'bookings/create', model).pipe(
+    return this.http.post(this.baseUrl + 'data/bookings/create', model).pipe(
+      map((response: any) => {
+        const booking = response;
+        if (booking) {
+          console.log(booking);
+        }
+      })
+    );
+  }
+
+  classBooking(model: any) {
+    return this.http.post(this.baseUrl + 'data/bookings/classes', model).pipe(
       map((response: any) => {
         const booking = response;
         if (booking) {
@@ -35,7 +48,7 @@ export class DataService {
   }
 
   createMembership(model: any) {
-    return this.http.post(this.baseUrl + 'membership/create', model).pipe(
+    return this.http.post(this.baseUrl + 'data/membership/create', model).pipe(
       map((response: any) => {
         const user = response;
         if (user) {
@@ -43,6 +56,10 @@ export class DataService {
         }
       })
     );
+  }
+
+  getClasses(): Observable<Class[]> {
+    return this.http.get<Class[]>(this.baseUrl + 'data/classes');
   }
 
   createClass(model: any) {
@@ -55,5 +72,18 @@ export class DataService {
       })
     );
   }
+
+  deleteClass(id: number) {
+    return this.http.delete(this.baseUrl + 'admin/classes/delete' + id).pipe(
+      map((response: any) => {
+        const deletedClass = response;
+        if (deletedClass) {
+          console.log(deletedClass);
+        }
+      })
+    );
+  }
+
+
 
 }
