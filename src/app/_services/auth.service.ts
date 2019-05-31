@@ -60,6 +60,14 @@ export class AuthService {
   }
 
   updateStaff(id: number, model: any) {
+    return this.http.put(this.baseUrl + 'staff/update/' + id, model).pipe(
+      map((response: any) => {
+        const updatedStaff = response;
+        if (updatedStaff) {
+          console.log(updatedStaff);
+        }
+      })
+    );
   }
 
   deleteStaff(id: number) {

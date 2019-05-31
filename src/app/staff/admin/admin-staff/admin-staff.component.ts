@@ -59,7 +59,7 @@ export class AdminStaffComponent implements OnInit {
     );
   }
 
-  editClass() {
+  updateStaff() {
     this.authService.updateStaff(this.id, this.model).subscribe(
       next => {
         this.alertify.success('Staff Member Updated');
