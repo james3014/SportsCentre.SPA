@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from './_services/auth.service';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { User } from './_models/user';
+import { Staff } from './_models/staff';
 
 @Component({
   selector: 'app-root',
@@ -16,11 +17,15 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     const token = localStorage.getItem('token');
     const user: User = JSON.parse(localStorage.getItem('user'));
+    const staff: Staff = JSON.parse(localStorage.getItem('staff'));
     if (token) {
       this.authService.decodedToken = this.jwtHelper.decodeToken(token);
     }
     if (user) {
       this.authService.currentUser = user;
+    }
+    if (staff) {
+      this.authService.currentStaff = staff;
     }
   }
 }

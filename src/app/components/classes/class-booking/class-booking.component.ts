@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-class-booking',
@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./class-booking.component.css']
 })
 export class ClassBookingComponent implements OnInit {
+  @Input() id: number;
   
 
   constructor() { }

@@ -71,10 +71,18 @@ export class AdminClassesComponent implements OnInit {
     );
   }
 
-  editClass() {}
+  editClass() {
+    this.dataService.updateClass(this.id, this.model).subscribe(
+      next => {
+        this.alertify.success('Class Updated');
+      },
+      error => {
+        this.alertify.error(error);
+      }
+    );
+  }
 
   removeClass() {
-    console.log(this.id);
     this.dataService.deleteClass(this.id).subscribe(
       next => {
         this.alertify.success('Class Deleted');

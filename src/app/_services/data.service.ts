@@ -58,6 +58,17 @@ export class DataService {
     );
   }
 
+  cancelMembership(id: number) {
+    return this.http.get(this.baseUrl + 'data/membership/cancel/' + id).pipe(
+      map((response: any) => {
+        const membership = response;
+        if (membership) {
+          console.log(membership);
+        }
+      })
+    );
+  }
+
   getClasses(): Observable<Class[]> {
     return this.http.get<Class[]>(this.baseUrl + 'data/classes');
   }
@@ -68,6 +79,17 @@ export class DataService {
         const createdClass = response;
         if (createdClass) {
           console.log(createdClass);
+        }
+      })
+    );
+  }
+
+  updateClass(id: number, model: any) {
+    return this.http.put(this.baseUrl + 'admin/classes/update/' + id, model).pipe(
+      map((response: any) => {
+        const updatedClass = response;
+        if (updatedClass) {
+          console.log(updatedClass);
         }
       })
     );

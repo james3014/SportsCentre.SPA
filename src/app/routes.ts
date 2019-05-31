@@ -31,7 +31,7 @@ export const appRoutes: Routes = [
         runGuardsAndResolvers: 'always',
         canActivate: [AuthGuard],
         children: [
-            {path: 'membership/membership-manage', component: MembershipManageComponent},
+            {path: 'membership/manage/:id', component: MembershipManageComponent, resolve: {UserResolver}},
             {path: 'booking', component: BookingComponent},
             {path: 'class/booking', component: ClassBookingComponent},
             {path: 'shop', component: ShopComponent},

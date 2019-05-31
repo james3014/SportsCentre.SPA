@@ -73,7 +73,7 @@ export function tokenGetter() {
       AdminReportingComponent,
       AdminStaffComponent,
       ClassCardComponent,
-      ClassBookingComponent
+      ClassBookingComponent,
    ],
    imports: [
       BrowserModule,

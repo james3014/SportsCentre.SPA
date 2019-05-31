@@ -3,6 +3,8 @@ import { AuthService } from '../../_services/auth.service';
 import { createOfflineCompileUrlResolver, ThrowStmt } from '@angular/compiler';
 import { AlertifyService } from '../../_services/alertify.service';
 import { Router } from '@angular/router';
+import { User } from 'src/app/_models/user';
+import { Staff } from 'src/app/_models/staff';
 
 @Component({
   selector: 'app-nav',
@@ -10,6 +12,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./nav.component.css']
 })
 export class NavComponent implements OnInit {
+  staff: Staff;
+  user: User;
   model: any = {};
   registerMode = false;
 

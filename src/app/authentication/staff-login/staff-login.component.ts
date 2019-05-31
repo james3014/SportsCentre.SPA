@@ -22,7 +22,7 @@ export class StaffLoginComponent implements OnInit {
     }, error => {
       this.alertify.error('Failed To Login');
     }, () => {
-      this.router.navigate(['/home']);
+      this.router.navigate(['/admin']);
     });
   }
 

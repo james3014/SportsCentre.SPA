@@ -5,6 +5,7 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 import { environment } from 'src/environments/environment';
 import { User } from '../_models/user';
 import { UserService } from './user.service';
+import { Staff } from '../_models/staff';
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +15,7 @@ export class AuthService {
   jwtHelper = new JwtHelperService();
   decodedToken: any;
   currentUser: User;
+  currentStaff: Staff;
 
   constructor(private http: HttpClient) {}
 
@@ -39,7 +41,7 @@ export class AuthService {
         const staff = response;
         if (staff) {
           localStorage.setItem('token', staff.token);
-          localStorage.setItem('staff', JSON.stringify(staff.token));
+          localStorage.setItem('staff', JSON.stringify(staff.staff));
           this.decodedToken = this.jwtHelper.decodeToken(staff.token);
           this.currentUser = staff.staff;
           console.log(this.decodedToken);
@@ -57,6 +59,9 @@ export class AuthService {
     return this.http.post(this.baseUrl  + 'staff/create', model);
   }
 
+  updateStaff(id: number, model: any) {
+  }
+
   deleteStaff(id: number) {
     return this.http.delete(this.baseUrl + 'staff/delete/' + id).pipe(
       map((response: any) => {
@@ -67,8 +72,6 @@ export class AuthService {
       })
     );
   }
-
-
   loggedIn() {
     const token = localStorage.getItem('token');
     return !this.jwtHelper.isTokenExpired(token);
