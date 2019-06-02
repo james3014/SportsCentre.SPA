@@ -11,13 +11,12 @@ import { AlertifyService } from 'src/app/_services/alertify.service';
 export class ClassCardComponent implements OnInit {
   @Input() class: Class;
 
-  constructor(private dataService: DataService, private alertify: AlertifyService) { }
+  constructor() { }
 
   ngOnInit() {
   }
 
-  bookClass() {
-    console.log(this.class);
+  bookClass() { 
   }
 
 }

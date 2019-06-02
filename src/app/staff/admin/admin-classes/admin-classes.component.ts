@@ -31,7 +31,6 @@ export class AdminClassesComponent implements OnInit {
   constructor(
     private dataService: DataService,
     private alertify: AlertifyService,
-    private route: ActivatedRoute,
     private userService: UserService
   ) {}
 

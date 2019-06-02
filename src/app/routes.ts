@@ -33,7 +33,7 @@ export const appRoutes: Routes = [
         children: [
             {path: 'membership/manage/:id', component: MembershipManageComponent, resolve: {UserResolver}},
             {path: 'booking', component: BookingComponent},
-            {path: 'class/booking', component: ClassBookingComponent},
+            {path: 'class/booking/:id', component: ClassBookingComponent},
             {path: 'shop', component: ShopComponent},
             {path: 'admin', component: AdminComponent, resolve: {StaffResolver}},
             {path: 'bookings', component: BookingComponent},

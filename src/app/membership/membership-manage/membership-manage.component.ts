@@ -27,6 +27,7 @@ export class MembershipManageComponent implements OnInit {
     this.dataService.cancelMembership(this.user.id).subscribe(() => {
       this.alertify.success('Membership Cancelled');
       this.user.membershipType = '';
+      this.user.membershipExpiry = null;
     }, error => {
       this.alertify.error('Membership Cancel Failed - Please Contact Us Below');
     });
