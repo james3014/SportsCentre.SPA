@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+      <div class="card card-signin my-5">
+        <div class="card-body">
+          <h3 class="card-title text-center">Membership Details</h3>
+          <hr>
+
+          <form #cancelForm="ngForm" (ngSubmit)="cancelBooking()">
+
+            <div class="form-label-group mb-2 text-center">
+              <p>
+                Select a Booking
+              </p>
+              <select id="id" class="form-control" name="id" [(ngModel)]="id">
+                <option *ngFor="let b of bookings" value="{{b.id}}">{{b.bookingType.toString()}} on
+                  {{b.bookingDate | date:'shortDate' }} @ {{b.bookingTime.toString()}}</option>
+              </select>
+            </div>
+
+            <button class="btn btn-md btn-primary btn-block " type="submit">Cancel Booking</button>
+            <button class="btn btn-md btn-warning btn-block " type="button" [routerLink]="['contact']">Contact
+              Us</button>
+
+          </form>
+        </div>
+      </div>
+    </div>

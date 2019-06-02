@@ -3,10 +3,13 @@ import { Payment } from './payment';
 
 export interface Booking {
     id: number;
-    bookingName: string;
-    bookingDate: Date;
+    bookingEmail: string;
     contactNumber: string;
+    bookingDate: Date;
+    bookingTime: string;
     createdBy: User;
+    bookingType: string;
     facility: string;
+    attendees: string;
     requirements: string;
 }

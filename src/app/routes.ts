@@ -19,6 +19,7 @@ import { StaffResolver } from './_resolvers/staff.resolver';
 import { ClassResolver } from './_resolvers/class.resolver';
 import { ClassBookingComponent } from './components/classes/class-booking/class-booking.component';
 import { FunctionBookingComponent } from './components/booking/function-booking/function-booking.component';
+import { BookingManageComponent } from './components/booking/booking-manage/booking-manage.component';
 
 export const appRoutes: Routes = [
     {path: '', component: HomeComponent},
@@ -39,6 +40,7 @@ export const appRoutes: Routes = [
             {path: 'shop', component: ShopComponent},
             {path: 'admin', component: AdminComponent, resolve: {StaffResolver}},
             {path: 'bookings', component: BookingComponent},
+            {path: 'bookings/manage', component: BookingManageComponent},
             {path: 'membership/home/:id', component: MembershipHomeComponent, resolve: {UserResolver}},
             {path: 'membership/adult', component: MembershipAdultComponent},
             {path: 'membership/juvenile', component: MembershipJuvenileComponent},

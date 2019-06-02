@@ -41,6 +41,7 @@ import { ClassResolver } from './_resolvers/class.resolver';
 import { ClassCardComponent } from './components/classes/class-card/class-card.component';
 import { ClassBookingComponent } from './components/classes/class-booking/class-booking.component';
 import { FunctionBookingComponent } from './components/booking/function-booking/function-booking.component';
+import { BookingManageComponent } from './components/booking/booking-manage/booking-manage.component';
 
 
 export function tokenGetter() {
@@ -75,7 +76,8 @@ export function tokenGetter() {
       AdminStaffComponent,
       ClassCardComponent,
       ClassBookingComponent,
-      FunctionBookingComponent
+      FunctionBookingComponent,
+      BookingManageComponent
    ],
    imports: [
       BrowserModule,

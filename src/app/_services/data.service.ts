@@ -25,6 +25,10 @@ export class DataService {
     return this.http.get(this.baseUrl + 'bookings');
   }
 
+  getUserBookings(id: number) {
+    return this.http.get(this.baseUrl + 'data/bookings/' + id);
+  }
+
   createBooking(model: any) {
     return this.http.post(this.baseUrl + 'data/bookings/facility', model).pipe(
       map((response: any) => {
@@ -49,6 +53,17 @@ export class DataService {
 
   functionBooking(model: any) {
     return this.http.post(this.baseUrl + 'data/bookings/function', model).pipe(
+      map((response: any) => {
+        const booking = response;
+        if (booking) {
+          console.log(booking);
+        }
+      })
+    );
+  }
+
+  cancelBooking(id: number) {
+    return this.http.delete(this.baseUrl + 'data/bookings/cancel/' + id).pipe(
       map((response: any) => {
         const booking = response;
         if (booking) {
