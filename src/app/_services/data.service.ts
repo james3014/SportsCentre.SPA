@@ -26,7 +26,7 @@ export class DataService {
   }
 
   createBooking(model: any) {
-    return this.http.post(this.baseUrl + 'data/bookings/create', model).pipe(
+    return this.http.post(this.baseUrl + 'data/bookings/facility', model).pipe(
       map((response: any) => {
         const booking = response;
         if (booking) {
@@ -38,6 +38,17 @@ export class DataService {
 
   classBooking(id: number, model: any) {
     return this.http.post(this.baseUrl + 'data/bookings/classes/' + id, model).pipe(
+      map((response: any) => {
+        const booking = response;
+        if (booking) {
+          console.log(booking);
+        }
+      })
+    );
+  }
+
+  functionBooking(model: any) {
+    return this.http.post(this.baseUrl + 'data/bookings/function', model).pipe(
       map((response: any) => {
         const booking = response;
         if (booking) {
