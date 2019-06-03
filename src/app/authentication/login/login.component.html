@@ -7,8 +7,8 @@
           <hr class="my-4">
           <form #loginForm="ngForm" (ngSubmit)="login()">
             <div class="form-label-group mb-2">
-              <input type="email" id="inputEmail" class="form-control text-center" name="email"
-                [(ngModel)]="model.email" placeholder="Email address" required autofocus>
+              <input type="text" id="userName" class="form-control text-center" name="userName"
+                [(ngModel)]="model.userName" placeholder="Username" required autofocus>
             </div>
 
             <div class="form-label-group mb-3">

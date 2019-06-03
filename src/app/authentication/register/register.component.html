@@ -8,6 +8,11 @@
           <form #registerForm="ngForm" (ngSubmit)="register()">
 
             <div class="form-label-group mb-2">
+              <input type="text" class="form-control text-center" name="username" [(ngModel)]="model.username"
+                placeholder="Username" required autofocus>
+            </div>
+
+            <div class="form-label-group mb-2">
               <input type="email" class="form-control text-center" name="email" [(ngModel)]="model.email"
                 placeholder="Email address" required autofocus>
             </div>

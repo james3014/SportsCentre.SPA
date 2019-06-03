@@ -5,6 +5,8 @@ import { AlertifyService } from '../../_services/alertify.service';
 import { Router } from '@angular/router';
 import { User } from 'src/app/_models/user';
 import { Staff } from 'src/app/_models/staff';
+import { NgxPermissionsService } from 'ngx-permissions';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-nav',
@@ -17,9 +19,14 @@ export class NavComponent implements OnInit {
   model: any = {};
   registerMode = false;
 
-  constructor(public authService: AuthService, private alertify: AlertifyService, private router: Router) { }
+  constructor(
+    public authService: AuthService,
+    private alertify: AlertifyService,
+    private router: Router,
+  ) {}
 
   ngOnInit() {
+
   }
 
   loggedIn() {
@@ -38,5 +45,4 @@ export class NavComponent implements OnInit {
   registerToggle() {
     this.registerMode = !this.registerMode;
   }
-
 }

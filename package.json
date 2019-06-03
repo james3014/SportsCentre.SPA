@@ -29,6 +29,7 @@
     "jasmine": "^3.4.0",
     "jwt-decode": "^2.2.0",
     "ngx-bootstrap": "^3.0.1",
+    "ngx-permissions": "^6.0.6",
     "rxjs": "^6.5.1",
     "zone.js": "^0.8.26"
   },

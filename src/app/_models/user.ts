@@ -4,6 +4,7 @@ import { Order } from './order';
 
 export interface User {
     id: number;
+    userName: string;
     email: string;
     firstName: string;
     surname: string;
@@ -18,4 +19,5 @@ export interface User {
     bookings?: Booking[];
     payments?: Payment[];
     orders?: Order[];
+    roles?: string[];
 }

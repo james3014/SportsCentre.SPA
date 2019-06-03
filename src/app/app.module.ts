@@ -2,8 +2,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { BsDropdownModule, BsDatepickerModule } from 'ngx-bootstrap';
+import { BsDropdownModule, BsDatepickerModule, ModalModule } from 'ngx-bootstrap';
 import { RouterModule } from '@angular/router';
+import { NgxPermissionsModule } from 'ngx-permissions';
 
 import { AppComponent } from './app.component';
 import { NavComponent } from './components/nav/nav.component';
@@ -42,7 +43,10 @@ import { ClassCardComponent } from './components/classes/class-card/class-card.c
 import { ClassBookingComponent } from './components/classes/class-booking/class-booking.component';
 import { FunctionBookingComponent } from './components/booking/function-booking/function-booking.component';
 import { BookingManageComponent } from './components/booking/booking-manage/booking-manage.component';
-
+import { HasRoleDirective } from './_directives/hasRole.directive';
+import { UserManagementComponent } from './staff/admin/user-management/user-management.component';
+import { AdminService } from './_services/admin.service';
+import { RolesModalComponent } from './staff/admin/roles-modal/roles-modal.component';
 
 export function tokenGetter() {
    return localStorage.getItem('token');
@@ -77,7 +81,10 @@ export function tokenGetter() {
       ClassCardComponent,
       ClassBookingComponent,
       FunctionBookingComponent,
-      BookingManageComponent
+      BookingManageComponent,
+      HasRoleDirective,
+      UserManagementComponent,
+      RolesModalComponent
    ],
    imports: [
       BrowserModule,
@@ -87,7 +94,8 @@ export function tokenGetter() {
       BsDropdownModule.forRoot(),
       RouterModule.forRoot(appRoutes),
       FormsModule,
-      ReactiveFormsModule
+      ReactiveFormsModule, NgxPermissionsModule.forRoot(),
+      ModalModule.forRoot()
    ],
    providers: [
       AuthService,
@@ -97,7 +105,11 @@ export function tokenGetter() {
       UserService,
       UserResolver,
       StaffResolver,
-      ClassResolver
+      ClassResolver,
+      AdminService
+   ],
+   entryComponents: [
+      RolesModalComponent
    ],
    bootstrap: [
       AppComponent
