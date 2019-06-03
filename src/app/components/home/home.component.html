@@ -1,24 +1,26 @@
-<div class="container mt-3">
-    <div id="header" class="card text-black bg-white mb-3">
-        <div class="card-body">
-                
-        </div>
-    </div>
-
+<div class="container">
     <div id="main" class="card text-black bg-white mb-3">
         <div class="card-body">
-            <h3>Welcome to CCC Sports Centre</h3>
-            <br>
+                <div class="container mt-5">
+                        <div *ngIf="!registerMode" style="text-align: center">
+                          <h1>Achieve Your Goals</h1>
+                          <p class="lead">Join today as a free member!</p>
+                          <div class="text-center">
+                            <button class="btn btn-primary btn-lg mr-2" [routerLink]="['/register']">Register</button>
+                            <button class="btn btn-info btn-lg" [routerLink]="['/contact']">Need More Info?</button>
+                          </div>
+                        </div>
+                      </div>
+
+
 
         </div>
     </div>
 
     <div id="sidebar" class="card text-black bg-white mb-3">
         <div class="card-body">
-                <ngx-twitter-timeline 
-                [data]="{sourceType: 'url', url: 'https://twitter.com/twitterdev'}"
-                [opts]="{tweetLimit: 5}"
-            ></ngx-twitter-timeline>
+            <ngx-twitter-timeline [data]="{sourceType: 'url', url: 'https://twitter.com/JamesGr04177506'}"
+                [opts]="{tweetLimit: 5}"></ngx-twitter-timeline>
         </div>
     </div>
 </div>

@@ -3,10 +3,9 @@
   <h5 class="my-0 mr-md-auto font-weight-normal"><img class="card-img-top" src="assets/images/ccc-logo.jpg" alt="CCC Logo"></h5>
 
   <a class="p-2 text-dark" [routerLink]="['/home']">Home</a>
-  <a *appHasRole="['User']" class="p-2 text-dark" [routerLink]="['/membership/home/:id']">Membership</a>
+  <a *appHasRole="['Member', 'User']" class="p-2 text-dark" [routerLink]="['/membership/home/:id']">Membership</a>
   <a *appHasRole="['Member', 'User']" class="p-2 text-dark" [routerLink]="['/classes']">Classes</a>
   <a *appHasRole="['Member', 'User']" class="p-2 text-dark" [routerLink]="['/bookings']">Bookings</a>
-  <a *appHasRole="['Member', 'User']" class="p-2 text-dark" [routerLink]="['/bookings']">Shop</a>
   <a class="p-2 text-dark mr-2" [routerLink]="['/contact']">About Us</a>
 
   <div class="dropdown" dropdown>
