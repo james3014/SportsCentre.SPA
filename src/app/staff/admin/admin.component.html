@@ -3,7 +3,7 @@
     <h2 class="card-title">Administration</h2>
     <p class="card-text mb-3 mt-3">
       <button (click)=classToggle() class="btn btn-outline-warning inline mr-4">Classes</button>
-      <button (click)=memberToggle() class="btn btn-outline-warning inline mr-4">Members</button>
+      <button (click)=memberToggle() class="btn btn-outline-warning inline mr-4">Role Management</button>
       <button (click)=bookingToggle() class="btn btn-outline-warning inline mr-4">Bookings</button>
       <button (click)=staffToggle() class="btn btn-outline-warning inline">Staff</button>
       <button (click)=reportingToggle() class="btn btn-outline-warning inline ml-4">Reporting</button>
@@ -14,7 +14,9 @@
 <div *ngIf="classMode">
   <div class="row justify-content-center">
     <div class="col-8">
-      <app-admin-classes></app-admin-classes>
+      <div class="container">
+          <app-admin-classes></app-admin-classes>
+      </div> 
     </div>
   </div>
 </div>
@@ -23,14 +25,6 @@
   <div class="row justify-content-center">
     <div class="col-8">
       <app-admin-members></app-admin-members>
-    </div>
-  </div>
-</div>
-
-<div *ngIf="bookingMode">
-  <div class="row justify-content-center">
-    <div class="col-8">
-      <app-admin-bookings></app-admin-bookings>
     </div>
   </div>
 </div>

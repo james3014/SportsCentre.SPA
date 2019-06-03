@@ -7,8 +7,8 @@
 
           <form #createStaffForm="ngForm" (ngSubmit)="createStaff()">
             <div class="form-label-group mb-2">
-              <input type="email" id="email" class="form-control text-center" name="email" [(ngModel)]="model.email"
-                placeholder="Email" required autofocus>
+              <input type="text" id="username" class="form-control text-center" name="userName" [(ngModel)]="model.userName"
+                placeholder="Username" required autofocus>
             </div>
 
             <div class="form-label-group mb-2">
@@ -49,11 +49,6 @@
             <div class="form-label-group mb-2">
               <input type="text" class="form-control text-center" name="dateOfBirth" [(ngModel)]="model.dateOfBirth"
                 placeholder="Date of Birth" required autofocus bsDatepicker [bsConfig]="bsConfig">
-            </div>
-
-            <div class="form-label-group mb-2">
-              <input type="text" id="role" class="form-control text-center" name="role" [(ngModel)]="model.role"
-                placeholder="Role" required autofocus>
             </div>
 
             <button class="btn btn-md btn-primary btn-block " type="submit">Add Staff</button>
@@ -74,15 +69,15 @@
           <form #editStaffForm="ngForm" (ngSubmit)="updateStaff()">
 
             <div class="form-label-group mb-2">
-              <select id="id" class="form-control text-center" name="id" [(ngModel)]="id">
+              <select id="staffEditId" class="form-control text-center" name="id" [(ngModel)]="id">
                 <option *ngFor="let s of staff" value="{{s.id}}">{{s.firstName.toString()}} {{s.surname.toString()}}
                 </option>
               </select>
             </div>
 
             <div class="form-label-group mb-2">
-              <input type="email" id="email" class="form-control text-center" name="email" [(ngModel)]="model.email"
-                placeholder="Email" required autofocus>
+              <input type="text" id="userName" class="form-control text-center" name="userName" [(ngModel)]="model.userName"
+                placeholder="Username" required autofocus>
             </div>
 
             <div class="form-label-group mb-2">
@@ -123,11 +118,6 @@
             <div class="form-label-group mb-2">
               <input type="text" class="form-control text-center" name="dateOfBirth" [(ngModel)]="model.dateOfBirth"
                 placeholder="Date of Birth" required autofocus bsDatepicker [bsConfig]="bsConfig">
-            </div>
-
-            <div class="form-label-group mb-2">
-              <input type="text" id="role" class="form-control text-center" name="role" [(ngModel)]="model.role"
-                placeholder="Role" required autofocus>
             </div>
 
             <button class="btn btn-md btn-primary btn-block " type="submit">Edit Staff</button>

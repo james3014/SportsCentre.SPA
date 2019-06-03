@@ -22,10 +22,10 @@
             </div>
 
             <div class="form-label-group mb-2">
-              <select id="attendantEmail" class="form-control text-center" name="attendantEmail"
-                [(ngModel)]="model.attendantEmail">
+              <select id="attendantUserName" class="form-control text-center" name="attendantUserName"
+                [(ngModel)]="model.attendantUserName">
                 <option value="" disabled>Select Attendant</option>
-                <option *ngFor="let a of attendants" value="{{a.email}}">{{a.firstName}} {{a.surname}}</option>
+                <option *ngFor="let a of attendants" value="{{a.userName}}">{{a.firstName}} {{a.surname}}</option>
               </select>
             </div>
 
@@ -98,10 +98,10 @@
             </div>
 
             <div class="form-label-group mb-2">
-              <select id="attendantEmail" class="form-control text-center" name="attendantEmail"
-                [(ngModel)]="model.attendantEmail">
+              <select id="attendantUserName" class="form-control text-center" name="attendantUserName"
+                [(ngModel)]="model.attendantUserName">
                 <option value="" disabled>Select Attendant</option>
-                <option *ngFor="let a of attendants" value="{{a.email}}">{{a.firstName}} {{a.surname}}</option>
+                <option *ngFor="let a of attendants" value="{{a.userName}}">{{a.firstName}} {{a.surname}}</option>
               </select>
             </div>
 

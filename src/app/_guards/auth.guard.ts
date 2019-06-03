@@ -17,7 +17,7 @@ export class AuthGuard implements CanActivate {
       if (match) {
         return true;
       } else {
-        this.router.navigate(['/bookings']);
+        this.router.navigate(['/login']);
         this.aleritfy.error('Admins Only Area');
       }
     }

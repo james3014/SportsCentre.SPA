@@ -5,66 +5,119 @@
         <div class="card-body">
           <h3 class="card-title text-center">Create Account</h3>
           <hr>
-          <form #registerForm="ngForm" (ngSubmit)="register()">
+          <form [formGroup]="registerForm" (click)="register()">
 
             <div class="form-label-group mb-2">
-              <input type="text" class="form-control text-center" name="username" [(ngModel)]="model.username"
-                placeholder="Username" required autofocus>
+              <input type="text"
+                [ngClass]="{'is-invalid': registerForm.get('username').errors && registerForm.get('username').touched}"
+                class="form-control text-center" formControlName="username" placeholder="Username" autofocus>
+              <div class="invalid-feedback text-center">Choose a username</div>
             </div>
 
             <div class="form-label-group mb-2">
-              <input type="email" class="form-control text-center" name="email" [(ngModel)]="model.email"
-                placeholder="Email address" required autofocus>
+              <input type="email"
+                [ngClass]="{'is-invalid': registerForm.get('email').errors && registerForm.get('email').touched}"
+                class="form-control text-center" formControlName="email" placeholder="Email Address" autofocus>
+              <div class="invalid-feedback text-center">Enter an email</div>
             </div>
 
             <div class="form-label-group mb-2">
-              <input type="password" class="form-control text-center" name="password" [(ngModel)]="model.password"
-                placeholder="Password" required>
-            </div>
+                <input type="password" 
+                  [ngClass]="{'is-invalid': registerForm.get('password').errors 
+                    && registerForm.get('password').touched}"
+                  class="form-control text-center" 
+                  formControlName="password" 
+                  placeholder="Password">
+                  <div class="invalid-feedback text-center" 
+                    *ngIf="registerForm.get('password').hasError('required') 
+                      && registerForm.get('password').touched">
+                      Password is required
+                  </div>
+                  <div class="invalid-feedback text-center" 
+                  *ngIf="registerForm.get('password').hasError('minlength') 
+                    && registerForm.get('password').touched">
+                    Password must be at least 8 characters
+                </div>
+                <div class="invalid-feedback text-center" 
+                *ngIf="registerForm.get('password').hasError('maxlength') 
+                  && registerForm.get('password').touched">
+                  Password cannot exceed 16 characters
+              </div>
+              </div>
 
-            <div class="form-label-group mb-2">
-              <input type="password" class="form-control text-center" name="confirmPassword"
-                [(ngModel)]="model.confirmPassword" placeholder="Confirm Password" required>
-            </div>
+              <div class="form-label-group mb-2">
+                  <input 
+                    [ngClass]="{'is-invalid': registerForm.get('confirmPassword').errors 
+                      && registerForm.get('confirmPassword').touched
+                      || registerForm.get('confirmPassword').touched
+                      && registerForm.hasError('mismatch')}"
+                    type="password" 
+                    class="form-control text-center" 
+                    formControlName="confirmPassword" 
+                    placeholder="Confirm Password">
+                    <div class="invalid-feedback text-center" 
+                    *ngIf="registerForm.get('confirmPassword').hasError('required') 
+                      && registerForm.get('confirmPassword').touched">
+                      Confirm Password is required
+                  </div>
+                  <div class="invalid-feedback text-center" 
+                  *ngIf="registerForm.hasError('mismatch') 
+                    && registerForm.get('confirmPassword').touched">
+                    Passwords must match
+                </div>
+                </div>
 
-            <div class="form-label-group mb-2">
-              <input type="text" class="form-control text-center" name="firstName" [(ngModel)]="model.firstName"
-                placeholder="First Name" required autofocus>
-            </div>
+              <div class="form-label-group mb-2">
+                <input type="text"
+                  [ngClass]="{'is-invalid': registerForm.get('firstName').errors && registerForm.get('firstName').touched}"
+                  class="form-control text-center" formControlName="firstName" placeholder="First Name" autofocus>
+                <div class="invalid-feedback text-center">Enter a first name</div>
+              </div>
 
-            <div class="form-label-group mb-2">
-              <input type="text" class="form-control text-center" name="surname" [(ngModel)]="model.surname"
-                placeholder="Surname" required autofocus>
-            </div>
+              <div class="form-label-group mb-2">
+                <input type="text"
+                  [ngClass]="{'is-invalid': registerForm.get('surname').errors && registerForm.get('surname').touched}"
+                  class="form-control text-center" formControlName="surname" placeholder="Surname" autofocus>
+                <div class="invalid-feedback text-center">Enter a surname</div>
+              </div>
 
-            <div class="form-label-group mb-2">
-              <input type="text" class="form-control text-center" name="dob" [(ngModel)]="model.dob"
-                placeholder="Date of Birth" required autofocus bsDatepicker [bsConfig]="bsConfig">
-            </div>
+              <div class="form-label-group mb-2">
+                <input type="text"
+                  [ngClass]="{'is-invalid': registerForm.get('dateOfBirth').errors && registerForm.get('dateOfBirth').touched}"
+                  class="form-control text-center" formControlName="dateOfBirth" placeholder="Date of Birth" autofocus
+                  bsDatepicker [bsConfig]="bsConfig">
+                <div class="invalid-feedback text-center">Choose date of birth</div>
+              </div>
 
-            <div class="form-label-group mb-2">
-              <input type="text" class="form-control text-center" name="addressLine1" [(ngModel)]="model.addressLine1"
-                placeholder="Address" required autofocus>
-            </div>
+              <div class="form-label-group mb-2">
+                <input type="text"
+                  [ngClass]="{'is-invalid': registerForm.get('addressLine1').errors && registerForm.get('addressLine1').touched}"
+                  class="form-control text-center" formControlName="addressLine1" placeholder="Address" autofocus>
+                <div class="invalid-feedback text-center">Enter address</div>
+              </div>
 
-            <div class="form-label-group mb-2">
-              <input type="text" class="form-control text-center" name="addressLine2" [(ngModel)]="model.addressLine2"
-                placeholder="Address" autofocus>
-            </div>
+              <div class="form-label-group mb-2">
+                <input type="text" class="form-control text-center" formControlName="address2" placeholder="Address"
+                  autofocus>
+              </div>
 
-            <div class="form-label-group mb-2">
-              <input type="text" class="form-control text-center" name="town" [(ngModel)]="model.town"
-                placeholder="City" required autofocus>
-            </div>
+              <div class="form-label-group mb-2">
+                <input type="text"
+                  [ngClass]="{'is-invalid': registerForm.get('town').errors && registerForm.get('town').touched}"
+                  class="form-control text-center" formControlName="town" placeholder="City" autofocus>
+                <div class="invalid-feedback text-center">Enter city</div>
+              </div>
 
-            <div class="form-label-group mb-2">
-              <input type="text" class="form-control text-center" name="postCode" [(ngModel)]="model.postCode"
-                placeholder="Post Code" required autofocus>
-            </div>
+              <div class="form-label-group mb-2">
+                <input type="text"
+                  [ngClass]="{'is-invalid': registerForm.get('postCode').errors && registerForm.get('postCode').touched}"
+                  class="form-control text-center" formControlName="postCode" placeholder="Post Code" autofocus>
+                <div class="invalid-feedback text-center">Enter post code</div>
+              </div>
 
-            <button class="btn btn-md btn-primary btn-block " type="submit">Register</button>
-            <button class="btn btn-md btn-warning btn-block " type="button" routerLinkActive="active"
-              [routerLink]="['']">Cancel</button>
+              <button class="btn btn-md btn-primary btn-block" [disabled]="!registerForm.valid" type="submit">Register</button>
+              <button class="btn btn-md btn-warning btn-block" type="button" routerLinkActive="active"
+                [routerLink]="['']">Cancel</button>
 
           </form>
 

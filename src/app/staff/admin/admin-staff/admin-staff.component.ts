@@ -4,7 +4,7 @@ import { BsDatepickerConfig } from 'ngx-bootstrap';
 import { UserService } from 'src/app/_services/user.service';
 import { AlertifyService } from 'src/app/_services/alertify.service';
 import { AuthService } from 'src/app/_services/auth.service';
-import { Staff } from 'src/app/_models/staff';
+import { User } from 'src/app/_models/user';
 
 @Component({
   selector: 'app-admin-staff',
@@ -16,7 +16,7 @@ export class AdminStaffComponent implements OnInit {
   model: any = {};
   bsConfig: Partial<BsDatepickerConfig>;
   @HostListener('window:beforeunload', ['$event'])
-  staff: Staff[];
+  staff: User[];
   id: number;
 
   unloadNotification($event: any) {
@@ -37,7 +37,7 @@ export class AdminStaffComponent implements OnInit {
     };
 
     this.userService.getStaff().subscribe(
-      (staff: Staff[]) => {
+      (staff: User[]) => {
         this.staff = staff;
         console.log('Staff', this.staff);
       },

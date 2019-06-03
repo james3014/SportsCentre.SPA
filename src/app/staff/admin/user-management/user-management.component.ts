@@ -56,7 +56,7 @@ export class UserManagementComponent implements OnInit {
       {name: 'Staff', value: 'Staff'},
       {name: 'Member', value: 'Member'},
       {name: 'User', value: 'User'},
-      {name: 'Guest', value: 'Guest'},
+      {name: 'Attendant', value: 'Attendant'},
 
     ];
 

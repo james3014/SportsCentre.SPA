@@ -7,6 +7,7 @@ import { AlertifyService } from 'src/app/_services/alertify.service';
 import { ActivatedRouteSnapshot, ActivatedRoute } from '@angular/router';
 import { UserService } from 'src/app/_services/user.service';
 import { Class } from 'src/app/_models/class';
+import { User } from 'src/app/_models/user';
 
 @Component({
   selector: 'app-admin-classes',
@@ -18,7 +19,7 @@ export class AdminClassesComponent implements OnInit {
   model: any = {};
   bsConfig: Partial<BsDatepickerConfig>;
   @HostListener('window:beforeunload', ['$event'])
-  attendants: Staff[];
+  attendants: User[];
   classes: Class[];
   id: number;
 
@@ -39,7 +40,7 @@ export class AdminClassesComponent implements OnInit {
       containerClass: 'theme-orange'
     };
 
-    this.userService.getAttendants().subscribe((attendants: Staff[]) => {
+    this.userService.getAttendants().subscribe((attendants: User[]) => {
       this.attendants = attendants;
       console.log('Attendants', this.attendants);
     }, error => {
