@@ -20,6 +20,8 @@ import { ClassResolver } from './_resolvers/class.resolver';
 import { ClassBookingComponent } from './components/classes/class-booking/class-booking.component';
 import { FunctionBookingComponent } from './components/booking/function-booking/function-booking.component';
 import { BookingManageComponent } from './components/booking/booking-manage/booking-manage.component';
+import { MembershipConfirmationComponent } from './membership/membership-confirmation/membership-confirmation.component';
+import { MembershipCancelComponent } from './membership/membership-cancel/membership-cancel.component';
 
 export const appRoutes: Routes = [
     {path: '', component: HomeComponent},
@@ -50,6 +52,8 @@ export const appRoutes: Routes = [
             {path: 'membership/adult', component: MembershipAdultComponent, data: {roles: ['User']}},
             {path: 'membership/juvenile', component: MembershipJuvenileComponent, data: {roles: ['User']}},
             {path: 'membership/family', component: MembershipFamilyComponent, data: {roles: ['User']}},
+            {path: 'membership/confirmation', component: MembershipConfirmationComponent},
+            {path: 'membership/cancel', component: MembershipCancelComponent},
             {path: '**', redirectTo: 'home', pathMatch: 'full'},
         ]
     },

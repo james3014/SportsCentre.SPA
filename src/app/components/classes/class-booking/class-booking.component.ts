@@ -42,7 +42,7 @@ export class ClassBookingComponent implements OnInit {
     this.dataService.classBooking(this.id, this.model).subscribe(
       next => {
         this.alertify.success('Class Booking Created');
-      }, 
+      },
       error => {
         this.alertify.error('Class Booking Failed');
       }

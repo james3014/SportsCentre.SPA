@@ -14,7 +14,11 @@ export class PaymentOptionsComponent implements OnInit {
   @Input() public membershipType: string;
   user: User;
 
-  constructor(private dataService: DataService, private route: Router, private alertify: AlertifyService) {}
+  constructor(
+    private dataService: DataService,
+    private router: Router,
+    private alertify: AlertifyService
+  ) {}
 
   ngOnInit() {
     this.user = JSON.parse(localStorage.getItem('user'));
@@ -32,20 +36,31 @@ export class PaymentOptionsComponent implements OnInit {
     if (this.membershipType === 'Monthly') {
       this.user.membershipType = 'Monthly';
       console.log(this.user);
-      this.dataService.createMembership(this.user).subscribe(() => {
-        this.alertify.success('Membership Purchased');
-      }, error => {
-        this.alertify.error('Membership Purchase Failed');
-      });
+      this.dataService.createMembership(this.user).subscribe(
+        () => {
+          this.alertify.success('Membership Purchased');
+        },
+        error => {
+          this.alertify.error('Membership Purchase Failed, Please Try Again');
+        },
+        () => {
+          this.router.navigate(['membership/confirmation']);
+        }
+      );
     } else {
       this.user.membershipType = 'Annual';
       console.log(this.user);
-      this.dataService.createMembership(this.user).subscribe(() => {
-        this.alertify.success('Membership Purchased');
-      }, error => {
-        this.alertify.error('Membership Purchase Failed');
-      });
+      this.dataService.createMembership(this.user).subscribe(
+        () => {
+          this.alertify.success('Membership Purchased');
+        },
+        error => {
+          this.alertify.error('Membership Purchase Failed, Please Try Again');
+        },
+        () => {
+          this.router.navigate(['membership/confirmation']);
+        }
+      );
     }
-
   }
 }

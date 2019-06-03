@@ -5,6 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BsDropdownModule, BsDatepickerModule, ModalModule } from 'ngx-bootstrap';
 import { RouterModule } from '@angular/router';
 import { NgxPermissionsModule } from 'ngx-permissions';
+import { NgxTwitterTimelineModule } from 'ngx-twitter-timeline';
 
 import { AppComponent } from './app.component';
 import { NavComponent } from './components/nav/nav.component';
@@ -16,7 +17,6 @@ import { AlertifyService } from './_services/alertify.service';
 import { BookingComponent } from './components/booking/booking.component';
 import { ClassesComponent } from './components/classes/classes.component';
 import { ShopComponent } from './components/shop/shop.component';
-import { FooterComponent } from './components/footer/footer.component';
 import { MembershipHomeComponent } from './membership/membership-home/membership-home.component';
 import { MembershipManageComponent } from './membership/membership-manage/membership-manage.component';
 import { appRoutes } from './routes';
@@ -47,6 +47,8 @@ import { HasRoleDirective } from './_directives/hasRole.directive';
 import { UserManagementComponent } from './staff/admin/user-management/user-management.component';
 import { AdminService } from './_services/admin.service';
 import { RolesModalComponent } from './staff/admin/roles-modal/roles-modal.component';
+import { MembershipConfirmationComponent } from './membership/membership-confirmation/membership-confirmation.component';
+import { MembershipCancelComponent } from './membership/membership-cancel/membership-cancel.component';
 
 export function tokenGetter() {
    return localStorage.getItem('token');
@@ -66,7 +68,6 @@ export function tokenGetter() {
       MembershipJuvenileComponent,
       MembershipFamilyComponent,
       ShopComponent,
-      FooterComponent,
       AboutComponent,
       LoginComponent,
       StaffLoginComponent,
@@ -84,7 +85,9 @@ export function tokenGetter() {
       BookingManageComponent,
       HasRoleDirective,
       UserManagementComponent,
-      RolesModalComponent
+      RolesModalComponent,
+      MembershipConfirmationComponent,
+      MembershipCancelComponent
    ],
    imports: [
       BrowserModule,
@@ -95,7 +98,8 @@ export function tokenGetter() {
       RouterModule.forRoot(appRoutes),
       FormsModule,
       ReactiveFormsModule, NgxPermissionsModule.forRoot(),
-      ModalModule.forRoot()
+      ModalModule.forRoot(),
+      NgxTwitterTimelineModule
    ],
    providers: [
       AuthService,

@@ -5,7 +5,7 @@
         <div class="card-body">
           <h3 class="card-title text-center">Create Account</h3>
           <hr>
-          <form [formGroup]="registerForm" (click)="register()">
+          <form [formGroup]="registerForm" (ngSubmit)="register()">
 
             <div class="form-label-group mb-2">
               <input type="text"

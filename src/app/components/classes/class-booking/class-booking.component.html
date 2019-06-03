@@ -26,7 +26,7 @@
           <form #bookingForm="ngForm" (ngSubmit)="bookClass()">
 
             <div class="form-label-group mb-2">
-              <select id="id" class="form-control" name="id" [(ngModel)]="id">
+              <select id="id" class="form-control text-center" name="id" [(ngModel)]="id">
                   <option [ngValue]="" disabled>Select Class</option>
                 <option *ngFor="let c of classes" value="{{c.id}}">{{c.className.toString()}} on {{c.classDate | date:'shortDate' }} @ {{c.classTime.toString()}}</option>
               </select>
@@ -34,7 +34,7 @@
 
             <div class="form-label-group mb-2">
               <input type="text" class="form-control text-center" name="email" [(ngModel)]="model.email"
-                placeholder="Email" required autofocus>
+                placeholder="Registered Email" required autofocus>
             </div>
 
             <div class="form-label-group mb-2">

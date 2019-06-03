@@ -15,7 +15,7 @@
 
 <div *ngIf="paymentMode">
   <div class="row justify-content-center">
-    <div class="col-4">
+    <div class="col-12">
       <app-payment-options [membershipType]='paymentOption' (cancelPayment)="cancelPaymentMode($event)">
       </app-payment-options>
     </div>

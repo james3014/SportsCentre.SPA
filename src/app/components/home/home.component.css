@@ -1,19 +1,24 @@
 .container{
-    width: 80%;
+    width: 100%;
     margin: auto;
+}
+
+.card-img-top {
+    height: 25%;
+    width: 25%;
 }
 
 
 #main{
     float: left;
-    width: 70%;
+    width: 60%;
     height: 600px;
     box-sizing: border-box;
 }
 
 #sidebar{
     float: right;
-    width: 28%;
+    width: 40%;
     height: 600px;
     box-sizing: border-box;
 }
