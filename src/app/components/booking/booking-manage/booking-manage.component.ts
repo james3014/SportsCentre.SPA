@@ -3,6 +3,7 @@ import { User } from 'src/app/_models/user';
 import { DataService } from 'src/app/_services/data.service';
 import { AlertifyService } from 'src/app/_services/alertify.service';
 import { Booking } from 'src/app/_models/booking';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-booking-manage',
@@ -14,7 +15,7 @@ export class BookingManageComponent implements OnInit {
   user: User;
   id: number;
 
-  constructor(private dataService: DataService, private alertify: AlertifyService) { }
+  constructor(private dataService: DataService, private alertify: AlertifyService, private router: Router) { }
 
   ngOnInit() {
     this.user = JSON.parse(localStorage.getItem('user'));
@@ -37,6 +38,8 @@ export class BookingManageComponent implements OnInit {
       },
       error => {
         this.alertify.error('Booking Cancellation Failed');
+      }, () => {
+        this.router.navigate(['/booking/cancellation']);
       }
     );
   }

@@ -23,6 +23,8 @@ export class ClassesComponent implements OnInit {
       });
     }
   }
+
+
     // this.route.data.subscribe(data => {
     //   this.classes = data['classes'];
     // });

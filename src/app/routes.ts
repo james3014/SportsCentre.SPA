@@ -22,11 +22,14 @@ import { FunctionBookingComponent } from './components/booking/function-booking/
 import { BookingManageComponent } from './components/booking/booking-manage/booking-manage.component';
 import { MembershipConfirmationComponent } from './membership/membership-confirmation/membership-confirmation.component';
 import { MembershipCancelComponent } from './membership/membership-cancel/membership-cancel.component';
+import { BookingCancellationComponent } from './components/booking/booking-cancellation/booking-cancellation.component';
+import { MembershipInfoComponent } from './membership/membership-info/membership-info.component';
 
 export const appRoutes: Routes = [
     {path: '', component: HomeComponent},
     {path: 'register', component: RegisterComponent},
     {path: 'login', component: LoginComponent},
+    {path: 'membership/info', component: MembershipInfoComponent},
     {path: 'classes', component: ClassesComponent, resolve: {ClassResolver}},
     {path: 'contact', component: ContactComponent},
     {path: 'staff', component: StaffLoginComponent},
@@ -35,11 +38,6 @@ export const appRoutes: Routes = [
         runGuardsAndResolvers: 'always',
         canActivate: [AuthGuard],
         children: [
-            {path: 'register', component: RegisterComponent },
-            {path: 'login', component: LoginComponent},
-            {path: 'classes', component: ClassesComponent, resolve: {ClassResolver}},
-            {path: 'contact', component: ContactComponent},
-            {path: 'staff', component: StaffLoginComponent},
             {path: 'membership/manage/:id', component: MembershipManageComponent, data: {roles: ['Member']}, resolve: {UserResolver}},
             {path: 'booking', component: BookingComponent, data: {roles: ['Member']}},
             {path: 'class/booking/:id', component: ClassBookingComponent, data: {roles: ['Member', 'User']}},
@@ -54,6 +52,7 @@ export const appRoutes: Routes = [
             {path: 'membership/family', component: MembershipFamilyComponent, data: {roles: ['User']}},
             {path: 'membership/confirmation', component: MembershipConfirmationComponent},
             {path: 'membership/cancel', component: MembershipCancelComponent},
+            {path: 'booking/cancellation', component: BookingCancellationComponent},
             {path: '**', redirectTo: 'home', pathMatch: 'full'},
         ]
     },

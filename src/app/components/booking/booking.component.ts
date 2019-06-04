@@ -42,7 +42,7 @@ export class BookingComponent implements OnInit {
         this.bookingForm.reset();
       },
       error => {
-        this.alertify.error('Booking Failed');
+        this.alertify.error(error);
       }
     );
   }

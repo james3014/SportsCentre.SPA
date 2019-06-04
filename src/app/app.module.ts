@@ -49,6 +49,8 @@ import { AdminService } from './_services/admin.service';
 import { RolesModalComponent } from './staff/admin/roles-modal/roles-modal.component';
 import { MembershipConfirmationComponent } from './membership/membership-confirmation/membership-confirmation.component';
 import { MembershipCancelComponent } from './membership/membership-cancel/membership-cancel.component';
+import { BookingCancellationComponent } from './components/booking/booking-cancellation/booking-cancellation.component';
+import { MembershipInfoComponent } from './membership/membership-info/membership-info.component';
 
 export function tokenGetter() {
    return localStorage.getItem('token');
@@ -67,6 +69,7 @@ export function tokenGetter() {
       MembershipAdultComponent,
       MembershipJuvenileComponent,
       MembershipFamilyComponent,
+      MembershipInfoComponent,
       ShopComponent,
       AboutComponent,
       LoginComponent,
@@ -83,11 +86,13 @@ export function tokenGetter() {
       ClassBookingComponent,
       FunctionBookingComponent,
       BookingManageComponent,
+      BookingCancellationComponent,
       HasRoleDirective,
       UserManagementComponent,
       RolesModalComponent,
       MembershipConfirmationComponent,
-      MembershipCancelComponent
+      MembershipCancelComponent,
+
    ],
    imports: [
       BrowserModule,
